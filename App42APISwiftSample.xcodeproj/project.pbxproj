@@ -14,11 +14,16 @@
 		5D98F2431A40603A004FE767 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D98F2421A40603A004FE767 /* Images.xcassets */; };
 		5D98F2461A40603A004FE767 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D98F2441A40603A004FE767 /* LaunchScreen.xib */; };
 		5D98F2521A40603B004FE767 /* App42APISwiftSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98F2511A40603B004FE767 /* App42APISwiftSampleTests.swift */; };
-		5D98F25C1A4060A1004FE767 /* Shephertz_App42_iOS_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98F25B1A4060A1004FE767 /* Shephertz_App42_iOS_API.framework */; };
 		5D98F2621A406B2F004FE767 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98F2611A406B2F004FE767 /* CoreTelephony.framework */; };
 		5D98F2641A406B3B004FE767 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98F2631A406B3B004FE767 /* SystemConfiguration.framework */; };
 		5DD86B6F1A4812B100D6B84F /* UserServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */; };
 		5DD9A1731A42BAA70045B5D9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD9A1721A42BAA70045B5D9 /* CoreFoundation.framework */; };
+		D815ABA11A5D039B0040E29E /* GameServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815AB9C1A5D039B0040E29E /* GameServiceAPI.swift */; };
+		D815ABA21A5D039B0040E29E /* PushNotificationServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815AB9D1A5D039B0040E29E /* PushNotificationServiceAPI.swift */; };
+		D815ABA31A5D039B0040E29E /* RewardServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815AB9E1A5D039B0040E29E /* RewardServiceAPI.swift */; };
+		D815ABA41A5D039B0040E29E /* ScoreboardServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815AB9F1A5D039B0040E29E /* ScoreboardServiceAPI.swift */; };
+		D815ABA51A5D039B0040E29E /* StorageServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815ABA01A5D039B0040E29E /* StorageServiceAPI.swift */; };
+		D8E7C7D31A513005008E3827 /* Shephertz_App42_iOS_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E7C7D21A513005008E3827 /* Shephertz_App42_iOS_API.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,12 +48,17 @@
 		5D98F24B1A40603B004FE767 /* App42APISwiftSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = App42APISwiftSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D98F2501A40603B004FE767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D98F2511A40603B004FE767 /* App42APISwiftSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App42APISwiftSampleTests.swift; sourceTree = "<group>"; };
-		5D98F25B1A4060A1004FE767 /* Shephertz_App42_iOS_API.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Shephertz_App42_iOS_API.framework; path = ../../App42_iOS_API/Products/Shephertz_App42_iOS_API.framework; sourceTree = "<group>"; };
 		5D98F25D1A4061D0004FE767 /* App42APISwiftSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App42APISwiftSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D98F2611A406B2F004FE767 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5D98F2631A406B3B004FE767 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceAPI.swift; sourceTree = "<group>"; };
 		5DD9A1721A42BAA70045B5D9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		D815AB9C1A5D039B0040E29E /* GameServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameServiceAPI.swift; sourceTree = "<group>"; };
+		D815AB9D1A5D039B0040E29E /* PushNotificationServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationServiceAPI.swift; sourceTree = "<group>"; };
+		D815AB9E1A5D039B0040E29E /* RewardServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardServiceAPI.swift; sourceTree = "<group>"; };
+		D815AB9F1A5D039B0040E29E /* ScoreboardServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardServiceAPI.swift; sourceTree = "<group>"; };
+		D815ABA01A5D039B0040E29E /* StorageServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageServiceAPI.swift; sourceTree = "<group>"; };
+		D8E7C7D21A513005008E3827 /* Shephertz_App42_iOS_API.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Shephertz_App42_iOS_API.framework; path = ../App42_iOS_SDK/3.2/AsyncAPI/Shephertz_App42_iOS_API.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +69,7 @@
 				5DD9A1731A42BAA70045B5D9 /* CoreFoundation.framework in Frameworks */,
 				5D98F2641A406B3B004FE767 /* SystemConfiguration.framework in Frameworks */,
 				5D98F2621A406B2F004FE767 /* CoreTelephony.framework in Frameworks */,
-				5D98F25C1A4060A1004FE767 /* Shephertz_App42_iOS_API.framework in Frameworks */,
+				D8E7C7D31A513005008E3827 /* Shephertz_App42_iOS_API.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +146,11 @@
 		5DD86B6D1A48127600D6B84F /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D815AB9C1A5D039B0040E29E /* GameServiceAPI.swift */,
+				D815AB9D1A5D039B0040E29E /* PushNotificationServiceAPI.swift */,
+				D815AB9E1A5D039B0040E29E /* RewardServiceAPI.swift */,
+				D815AB9F1A5D039B0040E29E /* ScoreboardServiceAPI.swift */,
+				D815ABA01A5D039B0040E29E /* StorageServiceAPI.swift */,
 				5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */,
 			);
 			path = Tests;
@@ -147,7 +162,7 @@
 				5DD9A1721A42BAA70045B5D9 /* CoreFoundation.framework */,
 				5D98F2631A406B3B004FE767 /* SystemConfiguration.framework */,
 				5D98F2611A406B2F004FE767 /* CoreTelephony.framework */,
-				5D98F25B1A4060A1004FE767 /* Shephertz_App42_iOS_API.framework */,
+				D8E7C7D21A513005008E3827 /* Shephertz_App42_iOS_API.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -253,9 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D815ABA41A5D039B0040E29E /* ScoreboardServiceAPI.swift in Sources */,
+				D815ABA21A5D039B0040E29E /* PushNotificationServiceAPI.swift in Sources */,
+				D815ABA51A5D039B0040E29E /* StorageServiceAPI.swift in Sources */,
+				D815ABA11A5D039B0040E29E /* GameServiceAPI.swift in Sources */,
 				5D9781A61A43FF50000F1003 /* App42ServiceList.swift in Sources */,
 				5DD86B6F1A4812B100D6B84F /* UserServiceAPI.swift in Sources */,
 				5D98F23C1A40603A004FE767 /* AppDelegate.swift in Sources */,
+				D815ABA31A5D039B0040E29E /* RewardServiceAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -368,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -381,15 +401,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Rajeev/Documents/App42_GitHubRepo/App42_iOS_API/Products,
+					/Users/shephertz/Desktop/App42GitHubRepo/App42_iOS_SDK/3.2/AsyncAPI,
 				);
 				INFOPLIST_FILE = App42APISwiftSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "App42APISwiftSample/App42APISwiftSample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -398,14 +422,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Rajeev/Documents/App42_GitHubRepo/App42_iOS_API/Products,
+					/Users/shephertz/Desktop/App42GitHubRepo/App42_iOS_SDK/3.2/AsyncAPI,
 				);
 				INFOPLIST_FILE = App42APISwiftSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "App42APISwiftSample/App42APISwiftSample-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
