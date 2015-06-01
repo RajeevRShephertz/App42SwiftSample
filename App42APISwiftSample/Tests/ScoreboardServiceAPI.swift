@@ -43,20 +43,20 @@ class ScoreboardServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
         var index = indexPath.row
-        cell.textLabel.text = apiList?.objectAtIndex(index) as? String
+        cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel.text
+        var cellText = cell?.textLabel!.text
         if cellText == "SaveUserScore"
         {
             SaveUserScore()
@@ -65,7 +65,7 @@ class ScoreboardServiceAPI: UITableViewController {
         {
             GetScoresByUser()
         }
-        else if cellText == "GetHighestScoreByUser"
+       /* else if cellText == "GetHighestScoreByUser"
         {
             GetHighestScoreByUser()
         }
@@ -136,7 +136,7 @@ class ScoreboardServiceAPI: UITableViewController {
         else if cellText == "GetTopNRankers"
         {
             GetTopNRankers()
-        }
+        }*/
     }
     
     func SaveUserScore()
@@ -144,10 +144,10 @@ class ScoreboardServiceAPI: UITableViewController {
         var gameName = "Platformer"
         var userName = "123456"
         var score:Double = 2000
-        scoreBoardService?.saveUserScore(gameName,gameUserName:userName,gameScore:score, { (success, response, exception) -> Void in
+        scoreBoardService?.saveUserScore(gameName,gameUserName:userName,gameScore:score, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as Game
+                var game = response as! Game
                 NSLog("%@", game.name)
                 var scoreList = game.scoreList
                 for score in scoreList {
@@ -170,10 +170,10 @@ class ScoreboardServiceAPI: UITableViewController {
     {
         var gameName = "Platformer"
         var userName = "123456"
-        scoreBoardService?.getScoresByUser(gameName,gameUserName:userName, { (success, response, exception) -> Void in
+        scoreBoardService?.getScoresByUser(gameName,gameUserName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as Game
+                var game = response as! Game
                 NSLog("%@", game.name)
                 var scoreList = game.scoreList
                 for score in scoreList {
@@ -191,7 +191,7 @@ class ScoreboardServiceAPI: UITableViewController {
             }
         })
     }
-    func GetHighestScoreByUser()
+   /* func GetHighestScoreByUser()
     {
         var gameName = "Platformer"
         var userName = "123456"
@@ -649,6 +649,6 @@ class ScoreboardServiceAPI: UITableViewController {
             }
         })
     }
-    
+    */
     
 }

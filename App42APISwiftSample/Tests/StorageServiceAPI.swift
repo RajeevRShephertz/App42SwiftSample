@@ -43,20 +43,20 @@ class StorageServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
         var index = indexPath.row
-        cell.textLabel.text = apiList?.objectAtIndex(index) as? String
+        cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel.text
+        var cellText = cell?.textLabel!.text
         if cellText == "InsertDocFromJsonString"
         {
             InsertDocFromJsonString()
@@ -69,7 +69,7 @@ class StorageServiceAPI: UITableViewController {
         {
             FindAllDocs()
         }
-        else if cellText == "FindAllDocsByPaging"
+        /*else if cellText == "FindAllDocsByPaging"
         {
             FindAllDocsByPaging()
         }
@@ -156,7 +156,7 @@ class StorageServiceAPI: UITableViewController {
         else if cellText == "MapReduce"
         {
             MapReduce()
-        }
+        }*/
     }
     
     func InsertDocFromJsonString()
@@ -166,10 +166,10 @@ class StorageServiceAPI: UITableViewController {
         var collectionName = "Demo"
         var jsonString = "{\"Name\":\"Nick\",\"Age\":24}"
         App42API.setLoggedInUser(userName)
-        storageService?.insertJSONDocument(dbName, collectionName: collectionName, json:jsonString, { (success, response, exception) -> Void in
+        storageService?.insertJSONDocument(dbName, collectionName: collectionName, json:jsonString, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as Storage
+                var storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
                 var jsonDocList = storage.jsonDocArray
@@ -197,10 +197,10 @@ class StorageServiceAPI: UITableViewController {
         var collectionName = "Demo"
         var jsonDictionary = NSDictionary(object:"Nick", forKey:"name")
         App42API.setLoggedInUser(userName)
-        storageService?.insertJSONDocument(dbName, collectionName: collectionName, dataDict:jsonDictionary, { (success, response, exception) -> Void in
+        storageService?.insertJSONDocument(dbName, collectionName: collectionName, dataDict:jsonDictionary as [NSObject : AnyObject], completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as Storage
+                var storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
                 var jsonDocList = storage.jsonDocArray
@@ -226,10 +226,10 @@ class StorageServiceAPI: UITableViewController {
         var userName = "HimanshuSSharma"
         var dbName = "Test"
         var collectionName = "Demo"
-        storageService?.findAllDocuments(dbName, collectionName: collectionName, { (success, response, exception) -> Void in
+        storageService?.findAllDocuments(dbName, collectionName: collectionName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as Storage
+                var storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
                 var jsonDocList = storage.jsonDocArray
@@ -249,7 +249,7 @@ class StorageServiceAPI: UITableViewController {
             }
         })
     }
-    func FindAllDocsByPaging()
+  /*  func FindAllDocsByPaging()
     {
         var userName = "HimanshuSSharma"
         var dbName = "Test"
@@ -888,5 +888,5 @@ class StorageServiceAPI: UITableViewController {
             }
         })
     }
-    
+    */
 }

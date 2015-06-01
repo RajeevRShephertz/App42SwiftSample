@@ -43,33 +43,33 @@ class RewardServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
         var index = indexPath.row
-        cell.textLabel.text = apiList?.objectAtIndex(index) as? String
+        cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel.text
+        var cellText = cell?.textLabel!.text
         if cellText == "CreateReward"
         {
             CreateReward()
         }
         else if cellText == "GetAllRewardsCount"
         {
-            GetAllRewardsCount()
+            //GetAllRewardsCount()
         }
         else if cellText == "GetAllRewardsByPaging"
         {
-            GetAllRewardsByPaging()
+            //GetAllRewardsByPaging()
         }
-        else if cellText == "GetRewardByName"
+       /* else if cellText == "GetRewardByName"
         {
             GetRewardByName()
         }
@@ -100,7 +100,7 @@ class RewardServiceAPI: UITableViewController {
         else if cellText == "GetUserRankingOnReward"
         {
             GetUserRankingOnReward()
-        }
+        }*/
     }
     
     func CreateReward()
@@ -108,10 +108,10 @@ class RewardServiceAPI: UITableViewController {
         NSLog("createReward")
         var rewardName = "DeemedPoints"
         var description = "DeemedPoints added"
-        rewardService?.createReward(rewardName, rewardDescription: description, { (success, response, exception) -> Void in
+        rewardService?.createReward(rewardName, rewardDescription: description, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%@", reward.description)
             }
@@ -128,10 +128,10 @@ class RewardServiceAPI: UITableViewController {
     {
         NSLog("GetRewardByName")
         var rewardName = "DeemedPoints"
-        rewardService?.getRewardByName(rewardName, { (success, response, exception) -> Void in
+        rewardService?.getRewardByName(rewardName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%@", reward.description)
             }
@@ -150,7 +150,7 @@ class RewardServiceAPI: UITableViewController {
         rewardService?.getAllRewards( { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as NSArray
+                var list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%@", reward.description)
@@ -165,7 +165,7 @@ class RewardServiceAPI: UITableViewController {
             }
         })
     }
-    func GetAllRewardsByPaging()
+   /* func GetAllRewardsByPaging()
     {
         NSLog("GetAllRewardsByPaging")
         var max:Int32 = 11
@@ -392,6 +392,6 @@ class RewardServiceAPI: UITableViewController {
         })
     }
     
-    
+    */
     
 }

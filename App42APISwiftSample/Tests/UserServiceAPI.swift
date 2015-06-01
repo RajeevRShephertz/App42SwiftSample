@@ -12,7 +12,7 @@ class UserServiceAPI: UITableViewController {
 
     var apiList:NSArray? = nil
     var userService:UserService? = nil
-    var sessionId:NSString? = nil
+    var sessionId:String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,20 +43,20 @@ class UserServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
         var index = indexPath.row
-        cell.textLabel.text = apiList?.objectAtIndex(index) as? String
+        cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel.text
+        var cellText = cell?.textLabel!.text
         if cellText == "CreateUser"
         {
             createUser()
@@ -139,7 +139,7 @@ class UserServiceAPI: UITableViewController {
         }
         else if cellText == "GetUsersByProfileData"
         {
-            
+            getUsersByProfileData()
         }
         else if cellText == "Logout"
         {
@@ -164,7 +164,7 @@ class UserServiceAPI: UITableViewController {
         userService?.createUser(userName, password: password, emailAddress:emailAddress) { (success, response, exception) -> Void in
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
                 NSLog("%@", user.sessionId)
@@ -190,7 +190,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.sessionId)
             }
@@ -212,7 +212,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -232,7 +232,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
             }
@@ -254,7 +254,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
             }
@@ -275,7 +275,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var list = response as NSArray
+                var list = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }
@@ -297,7 +297,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -317,7 +317,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var list  = response as NSArray
+                var list  = response as! NSArray
                 
                 for user in list {
                     NSLog("UserName is %@", user.userName)
@@ -342,7 +342,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var list  = response as NSArray
+                var list  = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                     NSLog("%@", user.email)
@@ -365,7 +365,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as App42Response
+                var user = response as! App42Response
                 NSLog("%@", user.strResponse)
                 NSLog("%d", user.totalRecords)
             }
@@ -385,7 +385,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var list  = response as NSArray
+                var list  = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }
@@ -406,7 +406,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as App42Response
+                var user = response as! App42Response
                 NSLog("%@", user.strResponse)
                 NSLog("%d", user.totalRecords)
             }
@@ -428,7 +428,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var list  = response as NSArray
+                var list  = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }
@@ -451,7 +451,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var response = response as App42Response
+                var response = response as! App42Response
                 NSLog("%@", response.isResponseSuccess)
                 NSLog("%@", response.strResponse)
             }
@@ -472,7 +472,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var response = response as App42Response
+                var response = response as! App42Response
                 NSLog("%@", response.isResponseSuccess)
                 NSLog("%@", response.strResponse)
             }
@@ -493,7 +493,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -513,7 +513,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -533,7 +533,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as User
+                var user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
                 NSLog("%@", user.sessionId)
@@ -548,16 +548,18 @@ class UserServiceAPI: UITableViewController {
             }
         })
     }
+    
     func logOut()
     {
         NSLog("logout")
-        userService?.logout(sessionId, completionBlock: { (success, response, exception) -> Void in
+        
+        userService?.logout(self.sessionId, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as App42Response
-                NSLog("%@", user.isResponseSuccess)
-                NSLog("%@", user.strResponse)
+                var app42Response = response as! App42Response
+                NSLog("%@", app42Response.isResponseSuccess)
+                NSLog("%@", app42Response.strResponse)
             }
             else
             {
@@ -568,6 +570,7 @@ class UserServiceAPI: UITableViewController {
             }
         })
     }
+    
     func changeUserPassword()
     {
         NSLog("changeUserPassword")
@@ -578,7 +581,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as App42Response
+                var user = response as! App42Response
                 NSLog("%@", user.isResponseSuccess)
                 NSLog("%@", user.strResponse)
             }
@@ -591,6 +594,7 @@ class UserServiceAPI: UITableViewController {
             }
         })
     }
+    
     func resetUserPassword()
     {
         NSLog("changeUserPassword")
@@ -601,7 +605,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as App42Response
+                var user = response as! App42Response
                 NSLog("%@", user.isResponseSuccess)
                 NSLog("%@", user.strResponse)
             }
@@ -614,6 +618,7 @@ class UserServiceAPI: UITableViewController {
             }
         })
     }
+    
     func deleteUser()
     {
         NSLog("deleteUser")
@@ -622,9 +627,33 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as App42Response
+                var user = response as! App42Response
                 NSLog("%@", user.isResponseSuccess)
                 NSLog("%@", user.strResponse)
+            }
+            else
+            {
+                NSLog("%@", exception.reason!)
+                NSLog("%d", exception.appErrorCode)
+                NSLog("%d", exception.httpErrorCode)
+                NSLog("%@", exception.userInfo!)
+            }
+        })
+    }
+    
+    func getUsersByProfileData()
+    {
+        NSLog("getUsersByProfileData")
+        var profile:Profile = Profile();
+        profile.firstName = "Nick"
+        userService?.getUsersByProfileData(profile, completionBlock: { (success, response, exception) -> Void in
+            
+            if(success)
+            {
+                var list = response as! NSArray
+                for user in list {
+                    NSLog("%@", user.userName)
+                }
             }
             else
             {

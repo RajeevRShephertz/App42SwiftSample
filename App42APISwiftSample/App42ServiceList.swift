@@ -11,8 +11,8 @@ import UIKit
 
 class App42ServiceList: UITableViewController {
 
-    let apiKey = "7a6b25fc1d82dc1e1d614466a1c549a6e24f4a6b9c32fbded52c0ea224b9cbc4"
-    let secretKey = "0b50aaa30eb7b611462501ba087e03c7990b3713f7ad1f4b2c7cf5b247b68974"
+    let apiKey = "67359321652c10b15fd5f659d096a2051745aa4f339b936d6ce5dccb165de863"
+    let secretKey = "2d44878dd428046f23bd4b3807ce83e982db9900f4c5a8305255da4764c76610"
     
     
     var serviceList:NSDictionary? = nil
@@ -27,8 +27,6 @@ class App42ServiceList: UITableViewController {
          */
         App42API.initializeWithAPIKey(apiKey, andSecretKey: secretKey)
         App42API.enableApp42Trace(true)
-        App42API.setOfflineStorage(true)
-        App42CacheManager.sharedCacheManager().setPolicy(APP42_NETWORK_FIRST)
         
         /*** Initialised ***/
         
@@ -67,17 +65,17 @@ class App42ServiceList: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
 
         // Configure the cell...
         var index = indexPath.row
-        cell.textLabel.text = sortedKeys?.objectAtIndex(index) as? String
+        cell.textLabel!.text = sortedKeys?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel.text
+        var cellText = cell?.textLabel!.text
         if cellText == "User Service"
         {
             var userServiceAPI:UserServiceAPI = UserServiceAPI(style: UITableViewStyle.Plain)
@@ -86,9 +84,9 @@ class App42ServiceList: UITableViewController {
         }
         if cellText == "Game Service"
         {
-            var gameServiceAPI:GameServiceAPI = GameServiceAPI(style: UITableViewStyle.Plain)
+           /* var gameServiceAPI:GameServiceAPI = GameServiceAPI(style: UITableViewStyle.Plain)
             gameServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
-            self.navigationController?.pushViewController(gameServiceAPI, animated: true)
+            self.navigationController?.pushViewController(gameServiceAPI, animated: true)*/
         }
         if cellText == "Storage Service"
         {
