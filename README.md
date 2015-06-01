@@ -5,7 +5,7 @@ __Integrating App42_iOS_SDK__
 As Swift is designed to provide seamless compatibility with Cocoa and Objective-C, you can easily add 3rd party libraries like App42 to your project.
 To import an external framework in your Swift project, you have to rely on an Objective-C bridging header to expose the framework’s APIs to Swift. Xcode offers to create this header file when you add an Objective-C file to an existing project.
 
-Integrating App42 SDK in your Swift project is a 4 step process as mentioned below.
+Steps for integrating App42 SDK in your Swift project are mentioned below.
 
 * Add App42 Framework to Swift Project: Open your project in Xcode, Drag and Drop App42 framework under your project. As you will not find a Framework’s  group here, I recommend you to create a new group and add the framework to it.
 * Add SystemConfiguration and CoreTelephony frameworks from the build phases.
