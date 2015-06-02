@@ -84,9 +84,9 @@ class App42ServiceList: UITableViewController {
         }
         if cellText == "Game Service"
         {
-           /* var gameServiceAPI:GameServiceAPI = GameServiceAPI(style: UITableViewStyle.Plain)
+            var gameServiceAPI:GameServiceAPI = GameServiceAPI(style: UITableViewStyle.Plain)
             gameServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
-            self.navigationController?.pushViewController(gameServiceAPI, animated: true)*/
+            self.navigationController?.pushViewController(gameServiceAPI, animated: true)
         }
         if cellText == "Storage Service"
         {

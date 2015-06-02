@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D087A331B1D92FB00B9EC94 /* GameServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */; };
 		5D9781A61A43FF50000F1003 /* App42ServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9781A51A43FF50000F1003 /* App42ServiceList.swift */; };
 		5D9781A81A43FF94000F1003 /* App42Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D9781A71A43FF94000F1003 /* App42Services.plist */; };
 		5D98F23C1A40603A004FE767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98F23B1A40603A004FE767 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameServiceAPI.swift; sourceTree = "<group>"; };
 		5D9781A51A43FF50000F1003 /* App42ServiceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App42ServiceList.swift; sourceTree = "<group>"; };
 		5D9781A71A43FF94000F1003 /* App42Services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = App42Services.plist; sourceTree = "<group>"; };
 		5D98F2361A40603A004FE767 /* App42APISwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App42APISwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				D815AB9F1A5D039B0040E29E /* ScoreboardServiceAPI.swift */,
 				D815ABA01A5D039B0040E29E /* StorageServiceAPI.swift */,
 				5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */,
+				5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				D815ABA21A5D039B0040E29E /* PushNotificationServiceAPI.swift in Sources */,
 				D815ABA51A5D039B0040E29E /* StorageServiceAPI.swift in Sources */,
 				5D9781A61A43FF50000F1003 /* App42ServiceList.swift in Sources */,
+				5D087A331B1D92FB00B9EC94 /* GameServiceAPI.swift in Sources */,
 				5DD86B6F1A4812B100D6B84F /* UserServiceAPI.swift in Sources */,
 				5D98F23C1A40603A004FE767 /* AppDelegate.swift in Sources */,
 				D815ABA31A5D039B0040E29E /* RewardServiceAPI.swift in Sources */,
