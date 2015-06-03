@@ -63,13 +63,17 @@ class RewardServiceAPI: UITableViewController {
         }
         else if cellText == "GetAllRewardsCount"
         {
-            //GetAllRewardsCount()
+            GetAllRewardsCount()
+        }
+        else if cellText == "GetAllRewards"
+        {
+            GetAllRewards()
         }
         else if cellText == "GetAllRewardsByPaging"
         {
-            //GetAllRewardsByPaging()
+            GetAllRewardsByPaging()
         }
-       /* else if cellText == "GetRewardByName"
+        else if cellText == "GetRewardByName"
         {
             GetRewardByName()
         }
@@ -100,7 +104,7 @@ class RewardServiceAPI: UITableViewController {
         else if cellText == "GetUserRankingOnReward"
         {
             GetUserRankingOnReward()
-        }*/
+        }
     }
     
     func CreateReward()
@@ -165,15 +169,15 @@ class RewardServiceAPI: UITableViewController {
             }
         })
     }
-   /* func GetAllRewardsByPaging()
+    func GetAllRewardsByPaging()
     {
         NSLog("GetAllRewardsByPaging")
         var max:Int32 = 11
         var offset:Int32 = 0
-        rewardService?.getAllRewards(max, offset: offset, { (success, response, exception) -> Void in
+        rewardService?.getAllRewards(max, offset: offset, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as NSArray
+                var list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%@", reward.description)
@@ -194,7 +198,7 @@ class RewardServiceAPI: UITableViewController {
         rewardService?.getAllRewardsCount( { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as App42Response
+                var reward = response as! App42Response
                 NSLog("%@", reward.strResponse)
                 NSLog("%d", reward.totalRecords)
             }
@@ -214,10 +218,10 @@ class RewardServiceAPI: UITableViewController {
         var userName = "Himanshu"
         var gameName = "MorzillaTale"
         var rewardPoint:Double = 1000
-        rewardService?.earnRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, { (success, response, exception) -> Void in
+        rewardService?.earnRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -230,10 +234,10 @@ class RewardServiceAPI: UITableViewController {
                 NSLog("%@", exception.userInfo!)
             }
         })
-        rewardService?.earnRewards(gameName, gameUserName:"Rajeev",rewardName:rewardName, rewardPoints:500, { (success, response, exception) -> Void in
+        rewardService?.earnRewards(gameName, gameUserName:"Rajeev",rewardName:rewardName, rewardPoints:500, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -254,10 +258,10 @@ class RewardServiceAPI: UITableViewController {
         var userName = "Himanshu"
         var gameName = "MorzillaTale"
         var rewardPoint:Double = 1000
-        rewardService?.redeemRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, { (success, response, exception) -> Void in
+        rewardService?.redeemRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -276,10 +280,10 @@ class RewardServiceAPI: UITableViewController {
         NSLog("getGameRewardPointsForUser")
         var userName = "Himanshu"
         var gameName = "MorzillaTale"
-        rewardService?.getGameRewardPointsForUser(gameName, userName: userName, { (success, response, exception) -> Void in
+        rewardService?.getGameRewardPointsForUser(gameName, userName: userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                    NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
                     NSLog("%@", reward.userName)
@@ -299,10 +303,10 @@ class RewardServiceAPI: UITableViewController {
         NSLog("getTopNRewardEarners")
         var rewardName = "DeemedPoints"
         var gameName = "MorzillaTale"
-        rewardService?.getTopNRewardEarners(gameName, rewardName: rewardName, max:10, { (success, response, exception) -> Void in
+        rewardService?.getTopNRewardEarners(gameName, rewardName: rewardName, max:10, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as NSArray
+                var list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
@@ -323,10 +327,10 @@ class RewardServiceAPI: UITableViewController {
         NSLog("GetAllRewardsByUser")
         var rewardName = "DeemedPoints"
         var userName = "Himanshu"
-        rewardService?.getAllRewardsByUser(userName, rewardName: rewardName, { (success, response, exception) -> Void in
+        rewardService?.getAllRewardsByUser(userName, rewardName: rewardName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as NSArray
+                var list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
@@ -347,11 +351,11 @@ class RewardServiceAPI: UITableViewController {
         NSLog("GetTopNRewardEarnersByGroup")
         var rewardName = "DeemedPoints"
         var gameName = "MorzillaTale"
-        var userList:NSArray = ["Himanshu","Rajeev","Sachin"]
-        rewardService?.getTopNRewardEarnersByGroup(gameName, rewardName: rewardName, userList:userList, { (success, response, exception) -> Void in
+        var userList = ["Himanshu","Rajeev","Sachin"]
+        rewardService?.getTopNRewardEarnersByGroup(gameName, rewardName: rewardName, userList:userList, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as NSArray
+                var list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
@@ -373,10 +377,10 @@ class RewardServiceAPI: UITableViewController {
         var rewardName = "DeemedPoints"
         var gameName = "MorzillaTale"
         var userName = "Himanshu"
-        rewardService?.getUserRankingOnReward(gameName, rewardName: rewardName, userName:userName, { (success, response, exception) -> Void in
+        rewardService?.getUserRankingOnReward(gameName, rewardName: rewardName, userName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as Reward
+                var reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -391,7 +395,5 @@ class RewardServiceAPI: UITableViewController {
             }
         })
     }
-    
-    */
     
 }
