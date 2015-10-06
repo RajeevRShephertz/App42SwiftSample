@@ -40,20 +40,20 @@ class GameServiceAPI: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "CreateGame"
         {
             createGame()
@@ -78,12 +78,12 @@ class GameServiceAPI: UITableViewController {
     
     func createGame()
     {
-        var gameName = "NinjaFight"
-        var description = "Ninja Fight"
+        let gameName = "NinjaFight"
+        let description = "Ninja Fight"
         gameService?.createGame(gameName, gameDescription: description, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("Game Name = %@", game.name)
                 NSLog("Description = %@", game.description)
             }
@@ -99,11 +99,10 @@ class GameServiceAPI: UITableViewController {
     
     func getAllGamesCount()
     {
-        var gameName = "NinjaFight"
         gameService?.getAllGamesCount({ (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("Response = %@", app42Response.strResponse)
                 NSLog("Total Games count = %d", app42Response.totalRecords)
             }
@@ -119,10 +118,11 @@ class GameServiceAPI: UITableViewController {
     
     func getAllGames()
     {
+       
         gameService?.getAllGames({ (success, response, exception) -> Void in
             if(success)
             {
-                var games = response as! NSArray
+                let games = response as! NSArray
                 
                 for game in games{
                     NSLog("Game Name = %@", game.name)
@@ -142,13 +142,13 @@ class GameServiceAPI: UITableViewController {
     
     func getAllGamesByPaging()
     {
-        var max:Int32 = 5
-        var offset:Int32 = 0
+        let max:Int32 = 5
+        let offset:Int32 = 0
         
         gameService?.getAllGames(max, offset: offset, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var games = response as! NSArray
+                let games = response as! NSArray
                 
                 for game in games{
                     NSLog("Game Name = %@", game.name)
@@ -168,11 +168,11 @@ class GameServiceAPI: UITableViewController {
     
     func getGameByName()
     {
-        var gameName = "NinjaFight";
+        let gameName = "NinjaFight";
         gameService?.getGameByName(gameName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("Game Name = %@", game.name)
                 NSLog("Description = %@", game.description)
             }

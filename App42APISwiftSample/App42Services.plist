@@ -136,5 +136,30 @@
 		<string>GetAllGamesByPaging</string>
 		<string>GetGameByName</string>
 	</array>
+	<key>Upload Service</key>
+	<array>
+		<string>UploadFileFromPath</string>
+		<string>UploadFileWithData</string>
+		<string>UploadFileForUserFromPath</string>
+		<string>uploadFileForUserWithData</string>
+		<string>GetAllFilesCount</string>
+		<string>GetAllFiles</string>
+		<string>GetAllFilesByPaging</string>
+		<string>GetFileByUser</string>
+		<string>GetAllFilesCountByUser</string>
+		<string>GetAllFilesByUser</string>
+		<string>GetAllFilesByUserByPaging</string>
+		<string>GetFileByName</string>
+		<string>RemoveFileByUser</string>
+		<string>RemoveAllFilesByUser</string>
+		<string>RemoveAllFiles</string>
+		<string>GetFilesCountByType</string>
+		<string>GetFilesByType</string>
+		<string>GetFilesByTypeByPaging</string>
+		<string>GrantAccessOnFile</string>
+		<string>RevokeAccessOnFile</string>
+		<string>UploadFileForGroupFromPath</string>
+		<string>UploadFileForGroupWithData</string>
+	</array>
 </dict>
 </plist>

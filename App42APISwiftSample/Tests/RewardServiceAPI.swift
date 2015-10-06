@@ -43,20 +43,20 @@ class RewardServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "CreateReward"
         {
             CreateReward()
@@ -110,12 +110,12 @@ class RewardServiceAPI: UITableViewController {
     func CreateReward()
     {
         NSLog("createReward")
-        var rewardName = "DeemedPoints"
-        var description = "DeemedPoints added"
+        let rewardName = "DeemedPoints"
+        let description = "DeemedPoints added"
         rewardService?.createReward(rewardName, rewardDescription: description, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%@", reward.description)
             }
@@ -131,11 +131,11 @@ class RewardServiceAPI: UITableViewController {
     func GetRewardByName()
     {
         NSLog("GetRewardByName")
-        var rewardName = "DeemedPoints"
+        let rewardName = "DeemedPoints"
         rewardService?.getRewardByName(rewardName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%@", reward.description)
             }
@@ -154,7 +154,7 @@ class RewardServiceAPI: UITableViewController {
         rewardService?.getAllRewards( { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%@", reward.description)
@@ -172,12 +172,12 @@ class RewardServiceAPI: UITableViewController {
     func GetAllRewardsByPaging()
     {
         NSLog("GetAllRewardsByPaging")
-        var max:Int32 = 11
-        var offset:Int32 = 0
+        let max:Int32 = 11
+        let offset:Int32 = 0
         rewardService?.getAllRewards(max, offset: offset, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%@", reward.description)
@@ -198,7 +198,7 @@ class RewardServiceAPI: UITableViewController {
         rewardService?.getAllRewardsCount( { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! App42Response
+                let reward = response as! App42Response
                 NSLog("%@", reward.strResponse)
                 NSLog("%d", reward.totalRecords)
             }
@@ -214,14 +214,14 @@ class RewardServiceAPI: UITableViewController {
     func EarnRewards()
     {
         NSLog("Create User")
-        var rewardName = "DeemedPoints"
-        var userName = "Himanshu"
-        var gameName = "MorzillaTale"
-        var rewardPoint:Double = 1000
+        let rewardName = "DeemedPoints"
+        let userName = "Himanshu"
+        let gameName = "MorzillaTale"
+        let rewardPoint:Double = 1000
         rewardService?.earnRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -237,7 +237,7 @@ class RewardServiceAPI: UITableViewController {
         rewardService?.earnRewards(gameName, gameUserName:"Rajeev",rewardName:rewardName, rewardPoints:500, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -254,14 +254,14 @@ class RewardServiceAPI: UITableViewController {
     func RedeemRewards()
     {
         NSLog("Create User")
-        var rewardName = "DeemedPoints"
-        var userName = "Himanshu"
-        var gameName = "MorzillaTale"
-        var rewardPoint:Double = 1000
+        let rewardName = "DeemedPoints"
+        let userName = "Himanshu"
+        let gameName = "MorzillaTale"
+        let rewardPoint:Double = 1000
         rewardService?.redeemRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)
@@ -278,12 +278,12 @@ class RewardServiceAPI: UITableViewController {
     func GetGameRewardPointsForUser()
     {
         NSLog("getGameRewardPointsForUser")
-        var userName = "Himanshu"
-        var gameName = "MorzillaTale"
+        let userName = "Himanshu"
+        let gameName = "MorzillaTale"
         rewardService?.getGameRewardPointsForUser(gameName, userName: userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                    NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
                     NSLog("%@", reward.userName)
@@ -301,12 +301,12 @@ class RewardServiceAPI: UITableViewController {
     func GetTopNRewardEarners()
     {
         NSLog("getTopNRewardEarners")
-        var rewardName = "DeemedPoints"
-        var gameName = "MorzillaTale"
+        let rewardName = "DeemedPoints"
+        let gameName = "MorzillaTale"
         rewardService?.getTopNRewardEarners(gameName, rewardName: rewardName, max:10, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
@@ -325,12 +325,12 @@ class RewardServiceAPI: UITableViewController {
     func GetAllRewardsByUser()
     {
         NSLog("GetAllRewardsByUser")
-        var rewardName = "DeemedPoints"
-        var userName = "Himanshu"
+        let rewardName = "DeemedPoints"
+        let userName = "Himanshu"
         rewardService?.getAllRewardsByUser(userName, rewardName: rewardName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
@@ -349,13 +349,13 @@ class RewardServiceAPI: UITableViewController {
     func GetTopNRewardEarnersByGroup()
     {
         NSLog("GetTopNRewardEarnersByGroup")
-        var rewardName = "DeemedPoints"
-        var gameName = "MorzillaTale"
-        var userList = ["Himanshu","Rajeev","Sachin"]
+        let rewardName = "DeemedPoints"
+        let gameName = "MorzillaTale"
+        let userList = ["Himanshu","Rajeev","Sachin"]
         rewardService?.getTopNRewardEarnersByGroup(gameName, rewardName: rewardName, userList:userList, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for reward in list {
                     NSLog("%@", reward.name)
                     NSLog("%f", reward.points)
@@ -374,13 +374,13 @@ class RewardServiceAPI: UITableViewController {
     func GetUserRankingOnReward()
     {
         NSLog("getTopNRewardEarners")
-        var rewardName = "DeemedPoints"
-        var gameName = "MorzillaTale"
-        var userName = "Himanshu"
+        let rewardName = "DeemedPoints"
+        let gameName = "MorzillaTale"
+        let userName = "Himanshu"
         rewardService?.getUserRankingOnReward(gameName, rewardName: rewardName, userName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var reward = response as! Reward
+                let reward = response as! Reward
                 NSLog("%@", reward.name)
                 NSLog("%f", reward.points)
                 NSLog("%@", reward.userName)

@@ -43,20 +43,20 @@ class PushNotificationServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "RegisterDeviceToken"
         {
             RegisterDeviceToken()
@@ -164,12 +164,12 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func RegisterDeviceToken()
     {
-        var userName = "HimanshuSSharma"
-        var deviceToken = "123456"
-        pushNotificationService?.registerDeviceToken(userName, withUser: userName,completionBlock: { (success, response, exception) -> Void in
+        let userName = "HimanshuSSharma"
+        let deviceToken = "123456"
+        pushNotificationService?.registerDeviceToken(deviceToken, withUser:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.userName)
                 NSLog("%@", pushNotification.deviceToken)
             }
@@ -185,13 +185,13 @@ class PushNotificationServiceAPI: UITableViewController {
     func CreateChannelForApp()
     {
         NSLog("CreateChannelForApp")
-        var channel = "AajTak"
-        var description = "123456"
+        let channel = "AajTak"
+        let description = "123456"
         pushNotificationService?.createChannelForApp(channel, description: description,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
-                var channelList  = pushNotification.channelList
+                let pushNotification = response as! PushNotification
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                     NSLog("%@", channel.description)
@@ -209,13 +209,13 @@ class PushNotificationServiceAPI: UITableViewController {
     func SubscribeToChannel()
     {
         NSLog("SubscribeToChannel")
-        var channel = "AajTak"
-        var userName = "HimanshuSSharma"
+        let channel = "AajTak"
+        let userName = "HimanshuSSharma"
         pushNotificationService?.subscribeToChannel(channel, userName: userName,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
-                var channelList  = pushNotification.channelList
+                let pushNotification = response as! PushNotification
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                 }
@@ -232,13 +232,13 @@ class PushNotificationServiceAPI: UITableViewController {
     func UnsubscribeFromChannel()
     {
         NSLog("CreateChannelForApp")
-        var channel = "AajTak"
-        var userName = "HimanshuSSharma"
+        let channel = "AajTak"
+        let userName = "HimanshuSSharma"
         pushNotificationService?.unsubscribeFromChannel(channel, userName: userName,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
-                var channelList  = pushNotification.channelList
+                let pushNotification = response as! PushNotification
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                 }
@@ -254,14 +254,14 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SubscribeToChannelWithDeviceToken()
     {
-        var channel = "AajTak"
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let channel = "AajTak"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.subscribeToChannel(channel, userName: userName,deviceToken:deviceToken,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
-                var channelList  = pushNotification.channelList
+                let pushNotification = response as! PushNotification
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                 }
@@ -278,14 +278,14 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func SubscribeToChannelWithDeviceTokenAndType()
     {
-        var channel = "AajTak"
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let channel = "AajTak"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.subscribeToChannel(channel, userName: userName,deviceToken:deviceToken,deviceType:"Android",completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
-                var channelList  = pushNotification.channelList
+                let pushNotification = response as! PushNotification
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                 }
@@ -301,14 +301,14 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func UnsubscribeDeviceToChannel()
     {
-        var channel = "AajTak"
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let channel = "AajTak"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.unsubscribeDeviceToChannel(channel, userName: userName,deviceToken:deviceToken,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
-                var channelList  = pushNotification.channelList
+                let pushNotification = response as! PushNotification
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                 }
@@ -325,14 +325,14 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func SendPushMessageToChannel()
     {
-        var channel = "AajTak"
-        var message = "HimanshuSSharma"
+        let channel = "AajTak"
+        let message = "HimanshuSSharma"
         pushNotificationService?.sendPushMessageToChannel(channel, withMessage:message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
-                var channelList  = pushNotification.channelList
+                let channelList  = pushNotification.channelList
                 for channel in channelList {
                     NSLog("%@", channel.channelName)
                 }
@@ -348,15 +348,15 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SendPushMessageDictToChannel()
     {
-        var channel = "AajTak"
-        var message =  NSMutableDictionary()
+        let channel = "AajTak"
+        let message =  NSMutableDictionary()
         message["alert"] = "Hello! This is my first notification."
         message["sound"] = "default"
         message["badge"] = "2"
         pushNotificationService?.sendPushMessageToChannel(channel, withMessageDictionary:message as [NSObject : AnyObject],completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -371,15 +371,15 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func SendPushMessageDictToUser()
     {
-        var userName = "HimanshuSSharma"
-        var message = NSMutableDictionary()
+        let userName = "HimanshuSSharma"
+        let message = NSMutableDictionary()
         message["alert"] = "Hello! This is my first notification."
         message["sound"] = "default"
         message["badge"] = "2"
         pushNotificationService?.sendPushMessageToUser(userName, withMessageDictionary:message as [NSObject : AnyObject],completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -393,11 +393,11 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SendPushMessageToAll()
     {
-        var message = "Hi All"
+        let message = "Hi All"
         pushNotificationService?.sendPushMessageToAll(message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -411,11 +411,11 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SendPushMessageToiOS()
     {
-        var message = "Hi All"
+        let message = "Hi All"
         pushNotificationService?.sendPushMessageToiOS(message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -429,11 +429,11 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SendPushMessageToAndroid()
     {
-        var message = "Hi All"
+        let message = "Hi All"
         pushNotificationService?.sendPushMessageToAndroid(message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -447,12 +447,12 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SendPushMessageToUser()
     {
-        var userName = "HimanshuSSharma"
-        var message = "Hi All"
+        let userName = "HimanshuSSharma"
+        let message = "Hi All"
         pushNotificationService?.sendPushMessageToUser(userName,message:message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -467,17 +467,16 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func SendPushToTargetUsers()
     {
-        var userName = "HimanshuSSharma"
-        var message = "Hi All"
-        var key = "Name"
-        var value = "Nick"
-        var dbName = "Test"
-        var collectionName = "Demo"
-        var query:Query = QueryBuilder.buildQueryWithKey(key, value:value, andOperator:APP42_OP_EQUALS)
+        let message = "Hi All"
+        let key = "Name"
+        let value = "Nick"
+        let dbName = "Test"
+        let collectionName = "Demo"
+        let query:Query = QueryBuilder.buildQueryWithKey(key, value:value, andOperator:APP42_OP_EQUALS)
         pushNotificationService?.sendPushToTargetUsers(message,dbName:dbName,collectionName:collectionName,query:query,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -492,13 +491,13 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func SendPushMessageToGroup()
     {
-        var userName = "HimanshuSSharma"
-        var userList = ["Nick",userName]
-        var message = "Hi All"
+        let userName = "HimanshuSSharma"
+        let userList = ["Nick",userName]
+        let message = "Hi All"
         pushNotificationService?.sendPushMessageToGroup(userList,message:message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -513,13 +512,13 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func ScheduleMessageToUser()
     {
-        var userName = "HimanshuSSharma"
-        var message = "Hi All"
-        var expiryDate = NSDate()
+        let userName = "HimanshuSSharma"
+        let message = "Hi All"
+        let expiryDate = NSDate()
         pushNotificationService?.scheduleMessageToUser(userName,expiryDate:expiryDate,message:message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -534,13 +533,13 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func SendMessageToInActiveUsersFromDate()
     {
-        var message = "Hi All"
-        var startDate = NSDate().laterDate(NSDate())
-        var expiryDate = NSDate()
+        let message = "Hi All"
+        let startDate = NSDate().laterDate(NSDate())
+        let expiryDate = NSDate()
         pushNotificationService?.sendMessageToInActiveUsersFromDate(startDate,toDate:expiryDate,message:message,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -556,12 +555,12 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func DeleteDeviceToken()
     {
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.deleteDeviceToken(userName,deviceToken:deviceToken,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var app42response = response as! App42Response
+                let app42response = response as! App42Response
                 NSLog("%@", app42response.isResponseSuccess)
                 NSLog("%@", app42response.strResponse)
             }
@@ -577,11 +576,11 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func DeleteAllDevices()
     {
-        var userName = "HimanshuSSharma"
+        let userName = "HimanshuSSharma"
         pushNotificationService?.deleteAllDevices(userName,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var app42response = response as! App42Response
+                let app42response = response as! App42Response
                 NSLog("%@", app42response.isResponseSuccess)
                 NSLog("%@", app42response.strResponse)
             }
@@ -597,12 +596,12 @@ class PushNotificationServiceAPI: UITableViewController {
     
     func UnsubscribeDeviceForUser()
     {
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.unsubscribeDeviceForUser(userName,deviceToken:deviceToken,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.userName)
                 NSLog("%@", pushNotification.deviceToken)
             }
@@ -617,12 +616,12 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func ResubscribeDeviceForUser()
     {
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.resubscribeDeviceForUser(userName,deviceToken:deviceToken,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.userName)
                 NSLog("%@", pushNotification.deviceToken)
             }
@@ -637,12 +636,12 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func SendPushMessageToDevice()
     {
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
         pushNotificationService?.sendPushMessageToDevice(deviceToken,userName:userName,message:"Hi Testing ios",completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.message)
             }
             else
@@ -656,13 +655,13 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func UpdatePushBadgeforDevice()
     {
-        var userName = "HimanshuSSharma"
-        var deviceToken = "HimanshuSSharma"
-        var badges:Int32 = 10
+        let userName = "HimanshuSSharma"
+        let deviceToken = "HimanshuSSharma"
+        let badges:Int32 = 10
         pushNotificationService?.updatePushBadgeforDevice(deviceToken,userName:userName,badges:badges,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.userName)
                 NSLog("%@", pushNotification.deviceToken)
             }
@@ -677,12 +676,12 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func UpdatePushBadgeforUser()
     {
-        var userName = "HimanshuSSharma"
-        var badges:Int32 = 10
+        let userName = "HimanshuSSharma"
+        let badges:Int32 = 10
         pushNotificationService?.updatePushBadgeforUser(userName,badges:badges,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var pushNotification = response as! PushNotification
+                let pushNotification = response as! PushNotification
                 NSLog("%@", pushNotification.userName)
             }
             else
@@ -696,12 +695,11 @@ class PushNotificationServiceAPI: UITableViewController {
     }
     func DeleteChannel()
     {
-        var channel = "AajTak"
-        var badges:Int32 = 10
+        let channel = "AajTak"
         pushNotificationService?.deleteChannel(channel,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var app42response = response as! App42Response
+                let app42response = response as! App42Response
                 NSLog("%@", app42response.isResponseSuccess)
                 NSLog("%@", app42response.strResponse)
             }

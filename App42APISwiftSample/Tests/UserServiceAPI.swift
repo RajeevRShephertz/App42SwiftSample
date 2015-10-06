@@ -43,20 +43,20 @@ class UserServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "CreateUser"
         {
             createUser()
@@ -158,13 +158,13 @@ class UserServiceAPI: UITableViewController {
     func createUser()
     {
         NSLog("Create User")
-        var userName = "HimanshusShephertz"
-        var password = "123456"
-        var emailAddress = "HimanshusShephertz@shephertz.com"
+        let userName = "HimanshusShephertz"
+        let password = "123456"
+        let emailAddress = "HimanshusShephertz@shephertz.com"
         userService?.createUser(userName, password: password, emailAddress:emailAddress) { (success, response, exception) -> Void in
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
                 NSLog("%@", user.sessionId)
@@ -182,15 +182,15 @@ class UserServiceAPI: UITableViewController {
     func createUserWithRoles()
     {
         NSLog("Create User With Roles")
-        var userName = "HimanshusShephertz12"
-        var password = "123456"
-        var emailAddress = "nick12.s12hephertz@shephertz.com"
-        var roles = ["COO","Lead"]
+        let userName = "HimanshusShephertz12"
+        let password = "123456"
+        let emailAddress = "nick12.s12hephertz@shephertz.com"
+        let roles = ["COO","Lead"]
         userService?.createUser(userName, password: password, emailAddress: emailAddress, roleList: roles, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.sessionId)
             }
@@ -206,13 +206,13 @@ class UserServiceAPI: UITableViewController {
     func assignRoles()
     {
         NSLog("Assign Roles")
-        var userName = "HimanshusShephertz"
-        var roles = ["COO","Lead"]
+        let userName = "HimanshusShephertz"
+        let roles = ["COO","Lead"]
         userService?.assignRoles(userName, roleList: roles, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -227,12 +227,12 @@ class UserServiceAPI: UITableViewController {
     func getUser()
     {
         NSLog("getUser")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.getUser(userName, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
             }
@@ -248,13 +248,12 @@ class UserServiceAPI: UITableViewController {
     func getUserByEmailId()
     {
         NSLog("getUserByEmailId")
-        var emailAddress = "HimanshusShephertz@shephertz.com"
-        var roles = ["COO","Lead"]
+        let emailAddress = "HimanshusShephertz@shephertz.com"
         userService?.getUserByEmailId(emailAddress, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
             }
@@ -270,12 +269,12 @@ class UserServiceAPI: UITableViewController {
     func getUsersByRole()
     {
         NSLog("getUsersByRole")
-        var role = "Lead"
+        let role = "Lead"
         userService?.getUsersByRole(role, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }
@@ -292,12 +291,12 @@ class UserServiceAPI: UITableViewController {
     func getRolesByUser()
     {
         NSLog("getRolesByUser")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.getRolesByUser(userName, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -312,12 +311,11 @@ class UserServiceAPI: UITableViewController {
     func getAllUsers()
     {
         NSLog("Get All Users")
-        var userName = "HimanshusShephertz"
         userService?.getAllUsers({ (success, response, exception) -> Void in
             
             if(success)
             {
-                var list  = response as! NSArray
+                let list  = response as! NSArray
                 
                 for user in list {
                     NSLog("UserName is %@", user.userName)
@@ -336,13 +334,13 @@ class UserServiceAPI: UITableViewController {
     func getAllUserWithPaging()
     {
         NSLog("getAllUsers with paging")
-        var max:Int32 = 10
-        var offset:Int32 = 0
+        let max:Int32 = 10
+        let offset:Int32 = 0
         userService?.getAllUsers(max , offset: offset , completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var list  = response as! NSArray
+                let list  = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                     NSLog("%@", user.email)
@@ -360,12 +358,11 @@ class UserServiceAPI: UITableViewController {
     func getAllUsersCount()
     {
         NSLog("getAllUsersCount")
-        var userName = "HimanshusShephertz"
         userService?.getAllUsersCount( { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! App42Response
+                let user = response as! App42Response
                 NSLog("%@", user.strResponse)
                 NSLog("%d", user.totalRecords)
             }
@@ -385,7 +382,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var list  = response as! NSArray
+                let list  = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }
@@ -406,7 +403,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var user = response as! App42Response
+                let user = response as! App42Response
                 NSLog("%@", user.strResponse)
                 NSLog("%d", user.totalRecords)
             }
@@ -422,13 +419,13 @@ class UserServiceAPI: UITableViewController {
     func getLockedUsersWithPaging()
     {
         NSLog("getLockedUsers with paging")
-        var max:Int32 = 10
-        var offset:Int32 = 0
+        let max:Int32 = 10
+        let offset:Int32 = 0
         userService?.getLockedUsers(max, offset: offset , completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var list  = response as! NSArray
+                let list  = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }
@@ -445,13 +442,13 @@ class UserServiceAPI: UITableViewController {
     func revokeRole()
     {
         NSLog("revokeRole")
-        var userName = "HimanshusShephertz"
-        var role = "Lead"
+        let userName = "HimanshusShephertz"
+        let role = "Lead"
         userService?.revokeRole(userName, role:role, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var response = response as! App42Response
+                let response = response as! App42Response
                 NSLog("%@", response.isResponseSuccess)
                 NSLog("%@", response.strResponse)
             }
@@ -467,12 +464,12 @@ class UserServiceAPI: UITableViewController {
     func revokeAllRoles()
     {
         NSLog("revokeAllRoles")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.revokeAllRoles(userName, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var response = response as! App42Response
+                let response = response as! App42Response
                 NSLog("%@", response.isResponseSuccess)
                 NSLog("%@", response.strResponse)
             }
@@ -488,12 +485,12 @@ class UserServiceAPI: UITableViewController {
     func lockUser()
     {
         NSLog("lockUser")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.lockUser(userName, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -508,12 +505,12 @@ class UserServiceAPI: UITableViewController {
     func unlockUser()
     {
         NSLog("unlockUser")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.unlockUser(userName, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
             }
             else
@@ -528,12 +525,12 @@ class UserServiceAPI: UITableViewController {
     func authenticateUser()
     {
         NSLog("authenticateUser")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.authenticateUser(userName, password:"123456", completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! User
+                let user = response as! User
                 NSLog("%@", user.userName)
                 NSLog("%@", user.email)
                 NSLog("%@", user.sessionId)
@@ -557,7 +554,7 @@ class UserServiceAPI: UITableViewController {
             
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("%@", app42Response.isResponseSuccess)
                 NSLog("%@", app42Response.strResponse)
             }
@@ -574,14 +571,14 @@ class UserServiceAPI: UITableViewController {
     func changeUserPassword()
     {
         NSLog("changeUserPassword")
-        var userName = "HimanshusShephertz"
-        var oldPassword = "123456"
-        var newPassword = "1234567"
+        let userName = "HimanshusShephertz"
+        let oldPassword = "123456"
+        let newPassword = "1234567"
         userService?.changeUserPassword(userName , oldPassword:oldPassword,newPassword:newPassword, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! App42Response
+                let user = response as! App42Response
                 NSLog("%@", user.isResponseSuccess)
                 NSLog("%@", user.strResponse)
             }
@@ -598,14 +595,12 @@ class UserServiceAPI: UITableViewController {
     func resetUserPassword()
     {
         NSLog("changeUserPassword")
-        var userName = "HimanshusShephertz"
-        var oldPassword = "123456"
-        var newPassword = "1234567"
+        let userName = "HimanshusShephertz"
         userService?.resetUserPassword(userName , completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! App42Response
+                let user = response as! App42Response
                 NSLog("%@", user.isResponseSuccess)
                 NSLog("%@", user.strResponse)
             }
@@ -622,12 +617,12 @@ class UserServiceAPI: UITableViewController {
     func deleteUser()
     {
         NSLog("deleteUser")
-        var userName = "HimanshusShephertz"
+        let userName = "HimanshusShephertz"
         userService?.deleteUser(userName , completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var user = response as! App42Response
+                let user = response as! App42Response
                 NSLog("%@", user.isResponseSuccess)
                 NSLog("%@", user.strResponse)
             }
@@ -644,13 +639,13 @@ class UserServiceAPI: UITableViewController {
     func getUsersByProfileData()
     {
         NSLog("getUsersByProfileData")
-        var profile:Profile = Profile();
+        let profile:Profile = Profile();
         profile.firstName = "Nick"
         userService?.getUsersByProfileData(profile, completionBlock: { (success, response, exception) -> Void in
             
             if(success)
             {
-                var list = response as! NSArray
+                let list = response as! NSArray
                 for user in list {
                     NSLog("%@", user.userName)
                 }

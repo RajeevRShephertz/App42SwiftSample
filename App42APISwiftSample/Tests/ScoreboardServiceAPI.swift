@@ -42,20 +42,20 @@ class ScoreboardServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "SaveUserScore"
         {
             SaveUserScore()
@@ -140,18 +140,18 @@ class ScoreboardServiceAPI: UITableViewController {
     
     func SaveUserScore()
     {
-        var gameName = "NinjaFight"
-        var userName = "123456"
-        var score:Double = 2000
+        let gameName = "NinjaFight"
+        let userName = "123456"
+        let score:Double = 2000
         scoreBoardService?.saveUserScore(gameName,gameUserName:userName,gameScore:score, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                     self.editScoreId = score.scoreId
@@ -168,17 +168,17 @@ class ScoreboardServiceAPI: UITableViewController {
     }
     func GetScoresByUser()
     {
-        var gameName = "NinjaFight"
-        var userName = "123456"
+        let gameName = "NinjaFight"
+        let userName = "123456"
         scoreBoardService?.getScoresByUser(gameName,gameUserName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -195,17 +195,17 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetHighestScoreByUser()
     {
-        var gameName  = "NinjaFight"
-        var userName = "123456"
+        let gameName  = "NinjaFight"
+        let userName = "123456"
         scoreBoardService?.getHighestScoreByUser(gameName,gameUserName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -222,17 +222,17 @@ class ScoreboardServiceAPI: UITableViewController {
     
     func GetLowestScoreByUser()
     {
-        var gameName  = "NinjaFight"
-        var userName = "123456"
+        let gameName  = "NinjaFight"
+        let userName = "123456"
         scoreBoardService?.getLowestScoreByUser(gameName,gameUserName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -249,17 +249,17 @@ class ScoreboardServiceAPI: UITableViewController {
     
     func GetAverageScoreByUser()
     {
-        var gameName  = "NinjaFight"
-        var userName = "123456"
+        let gameName  = "NinjaFight"
+        let userName = "123456"
         scoreBoardService?.getAverageScoreByUser(gameName,userName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                 }
             }
@@ -275,16 +275,16 @@ class ScoreboardServiceAPI: UITableViewController {
     
     func GetTopRankings()
     {
-        var gameName  = "NinjaFight"
+        let gameName  = "NinjaFight"
         scoreBoardService?.getTopRankings(gameName,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -301,17 +301,17 @@ class ScoreboardServiceAPI: UITableViewController {
     
     func GetTopRankersByGroup()
     {
-        var gameName  = "NinjaFight"
-        var userList = ["Himanshu","Nick","123456"]
+        let gameName  = "NinjaFight"
+        let userList = ["Himanshu","Nick","123456"]
         scoreBoardService?.getTopRankersByGroup(gameName,group:userList,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -328,17 +328,17 @@ class ScoreboardServiceAPI: UITableViewController {
     
     func GetTopRankingsByGroup()
     {
-        var gameName  = "NinjaFight"
-        var userList = ["Himanshu","Nick","123456"]
+        let gameName  = "NinjaFight"
+        let userList = ["Himanshu","Nick","123456"]
         scoreBoardService?.getTopRankingsByGroup(gameName,group:userList,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -355,18 +355,18 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopRankingsInDateRange()
     {
-        var gameName  = "NinjaFight"
-        var startDate = NSDate().laterDate(NSDate())
-        var endDate = NSDate()
+        let gameName  = "NinjaFight"
+        let startDate = NSDate().laterDate(NSDate())
+        let endDate = NSDate()
         scoreBoardService?.getTopRankings(gameName,startDate:startDate,endDate:endDate,completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -383,20 +383,20 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopNRankersInDateRange()
     {
-        var gameName  = "NinjaFight"
-        var startDate = NSDate().laterDate(NSDate())
-        var endDate = NSDate()
-        var max:Int32 = 10
+        let gameName  = "NinjaFight"
+        let startDate = NSDate().laterDate(NSDate())
+        let endDate = NSDate()
+        let max:Int32 = 10
         
         scoreBoardService?.getTopNRankers(gameName,startDate:startDate,endDate:endDate,max:max, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -413,16 +413,16 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetLastGameScore()
     {
-        var userName = "Nick"
+        let userName = "Nick"
         scoreBoardService?.getLastGameScore(userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -439,17 +439,17 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetUserRanking()
     {
-        var gameName  = "NinjaFight"
-        var userName = "123456"
+        let gameName  = "NinjaFight"
+        let userName = "123456"
         scoreBoardService?.getUserRanking(gameName,userName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -466,17 +466,17 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetLastScoreByUser()
     {
-        var gameName  = "NinjaFight"
-        var userName = "123456"
+        let gameName  = "NinjaFight"
+        let userName = "123456"
         scoreBoardService?.getLastScoreByUser(gameName,userName:userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -493,18 +493,18 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func EditScoreValueById()
     {//First run saveScore to get scoreId or assign a valid scoreId to following variable
-        var scoreId:String = editScoreId as! String
-        var score:Double = 9000
+        let scoreId:String = editScoreId as! String
+        let score:Double = 9000
          scoreBoardService?.editScoreValueById(scoreId, gameScore:score, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
                     NSLog("%@", score.scoreId)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                 }
             }
@@ -520,19 +520,19 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopRankersFromBuddyGroup()
     {
-        var gameName  = "NinjaFight"
-        var userName = "Nick"
-        var ownerName = "Nick"
-        var groupName = "Group Name"
+        let gameName  = "NinjaFight"
+        let userName = "Nick"
+        let ownerName = "Nick"
+        let groupName = "Group Name"
         scoreBoardService?.getTopRankersFromBuddyGroup(gameName,userName:userName,ownerName:ownerName,groupName:groupName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -549,18 +549,18 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopNRankersFromFacebook()
     {
-        var gameName  = "NinjaFight"
-        var accessToken = ""
-        var max:Int32 = 10
+        let gameName  = "NinjaFight"
+        let accessToken = ""
+        let max:Int32 = 10
         scoreBoardService?.getTopNRankersFromFacebook(gameName,fbAccessToken:accessToken,max:max, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -577,20 +577,20 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopNRankersFromFacebookInDateRange()
     {
-        var gameName  = "NinjaFight"
-        var accessToken = ""
-        var max:Int32 = 10
-        var startDate = NSDate().laterDate(NSDate())
-        var endDate = NSDate()
+        let gameName  = "NinjaFight"
+        let accessToken = ""
+        let max:Int32 = 10
+        let startDate = NSDate().laterDate(NSDate())
+        let endDate = NSDate()
         scoreBoardService?.getTopNRankersFromFacebook(gameName,fbAccessToken:accessToken,startDate:startDate,endDate:endDate,max:max, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -607,17 +607,17 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopNTargetRankers()
     {
-        var gameName  = "NinjaFight"
-        var max:Int32 = 10
+        let gameName  = "NinjaFight"
+        let max:Int32 = 10
         scoreBoardService?.getTopNTargetRankers(gameName,max:max, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -634,18 +634,18 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetUsersWithScoreRange()
     {
-        var gameName  = "NinjaFight"
-        var minScore:Double = 10
-        var maxScore:Double = 5000
+        let gameName  = "NinjaFight"
+        let minScore:Double = 10
+        let maxScore:Double = 5000
         scoreBoardService?.getUsersWithScoreRange(gameName,minScore:minScore,maxScore:maxScore, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
-                    var scoreValue = score.value as Double
+                    let scoreValue = score.value as Double
                     NSLog("%lf",scoreValue)
                     NSLog("%@", score.scoreId)
                 }
@@ -662,14 +662,14 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func GetTopNRankers()
     {
-        var gameName  = "NinjaFight"
-        var max:Int32 = 10
+        let gameName  = "NinjaFight"
+        let max:Int32 = 10
         scoreBoardService?.getTopNRankers(gameName,max:max, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var game = response as! Game
+                let game = response as! Game
                 NSLog("%@", game.name)
-                var scoreList = game.scoreList
+                let scoreList = game.scoreList
                 for score in scoreList {
                     NSLog("%@", score.userName)
                     NSLog("%@", score.scoreId)

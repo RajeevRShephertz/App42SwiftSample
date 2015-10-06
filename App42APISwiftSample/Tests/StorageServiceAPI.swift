@@ -44,20 +44,20 @@ class StorageServiceAPI: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
         if cell == NSNull()
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "reuseIdentifier")
         }
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = apiList?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "InsertDocFromJsonString"
         {
             InsertDocFromJsonString()
@@ -162,17 +162,17 @@ class StorageServiceAPI: UITableViewController {
     
     func InsertDocFromJsonString()
     {
-        var userName = "HimanshuSSharma"
-        var collectionName = "Demo"
-        var jsonString = "{\"Name\":\"Nick\",\"Age\":24}"
+        let userName = "HimanshuSSharma"
+        let collectionName = "Demo"
+        let jsonString = "{\"Name\":\"Nick\",\"Age\":24}"
         App42API.setLoggedInUser(userName)
         storageService?.insertJSONDocument(dbName, collectionName: collectionName, json:jsonString, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     self.objectId = jsonDoc.docId
@@ -192,17 +192,17 @@ class StorageServiceAPI: UITableViewController {
     }
     func InsertDocFromDictionary()
     {
-        var userName = "HimanshuSSharma"
-        var collectionName = "Demo"
-        var jsonDictionary = NSDictionary(object:"Nick", forKey:"name")
+        let userName = "HimanshuSSharma"
+        let collectionName = "Demo"
+        let jsonDictionary = NSDictionary(object:"Nick", forKey:"name")
         App42API.setLoggedInUser(userName)
         storageService?.insertJSONDocument(dbName, collectionName: collectionName, dataDict:jsonDictionary as [NSObject : AnyObject], completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -222,16 +222,15 @@ class StorageServiceAPI: UITableViewController {
     
     func FindAllDocs()
     {
-        var userName = "HimanshuSSharma"
          
-        var collectionName = "Demo"
+        let collectionName = "Demo"
         storageService?.findAllDocuments(dbName, collectionName: collectionName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -250,18 +249,15 @@ class StorageServiceAPI: UITableViewController {
     }
     func FindAllDocsByPaging()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var max:Int32 = 5
-        var offset:Int32 = 0
+        
+        let collectionName = "Demo"
         storageService?.findAllDocuments(dbName, collectionName: collectionName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -281,17 +277,16 @@ class StorageServiceAPI: UITableViewController {
     
     func FindDocumentById()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var docId =  objectId
+        
+        let collectionName = "Demo"
+        let docId =  objectId
         storageService?.findDocumentById(dbName, collectionName: collectionName,docId:docId as String, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -311,18 +306,17 @@ class StorageServiceAPI: UITableViewController {
     
     func FindDocumentByKeyValue()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Nick"
+        
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Nick"
         storageService?.findDocumentByKeyValue(dbName, collectionName: collectionName,key:key,value:value, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -342,19 +336,17 @@ class StorageServiceAPI: UITableViewController {
     
     func FindDocumentByQuery()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Nick"
-        var query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Nick"
+        let query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
         storageService?.findDocumentsByQuery(query,dbName:dbName, collectionName: collectionName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -373,21 +365,19 @@ class StorageServiceAPI: UITableViewController {
     }
     func FindDocumentsByQueryWithPaging()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Nick"
-        var max:Int32 = 5
-        var offset:Int32 = 0
-        var query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Nick"
+        let max:Int32 = 5
+        let offset:Int32 = 0
+        let query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
         storageService?.findDocumentsByQueryWithPaging(dbName, collectionName: collectionName,query:query,max:max,offset:offset, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -407,21 +397,19 @@ class StorageServiceAPI: UITableViewController {
     
     func FindDocsWithQueryPagingOrderBy()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Nick"
-        var max:Int32 = 5
-        var offset:Int32 = 0
-        var query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Nick"
+        let max:Int32 = 5
+        let offset:Int32 = 0
+        let query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
         storageService?.findDocsWithQueryPagingOrderBy(dbName, collectionName: collectionName,query:query,max:max,offset:offset,orderByKey:key,orderByType:APP42_ORDER_ASCENDING, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -440,19 +428,17 @@ class StorageServiceAPI: UITableViewController {
     }
     
     func UpdateDocumentByIdFromJsonString()
-    {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var docId =  objectId
-        var newJSONDoc = "{\"name\":\"Himanshu Sharma\"}"
+    {         
+        let collectionName = "Demo"
+        let docId =  objectId
+        let newJSONDoc = "{\"name\":\"Himanshu Sharma\"}"
         storageService?.updateDocumentByDocId(dbName, collectionName: collectionName,docId:docId as String,newJsonDoc:newJSONDoc, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -472,18 +458,16 @@ class StorageServiceAPI: UITableViewController {
     
     func UpdateDocumentByIdFromDictionary()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var docId =  objectId
-        var newJSONDoc = ["name":"Nick"]//NSDictionary(object:"Sachin Grover", forKey:"name")
+        let collectionName = "Demo"
+        let docId =  objectId
+        let newJSONDoc = ["name":"Nick"]//NSDictionary(object:"Sachin Grover", forKey:"name")
         storageService?.updateDocumentByDocId(dbName, collectionName: collectionName,docId:docId as String,newDataDict:newJSONDoc, completionBlock: { (success, response, exception)   -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -502,20 +486,19 @@ class StorageServiceAPI: UITableViewController {
     }
     func UpdateDocumentByKeyValueFromJsonString()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Himanshu Sharma"
-        var newJSONDoc = "{\"name\":\"Shashank Shukla\"}"
+        
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Himanshu Sharma"
+        let newJSONDoc = "{\"name\":\"Shashank Shukla\"}"
         
         storageService?.updateDocumentByKeyValue(dbName, collectionName: collectionName, key: key, value: value, newJsonDoc: newJSONDoc, completionBlock: { (success, response, exception)   -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -535,19 +518,17 @@ class StorageServiceAPI: UITableViewController {
     
     func UpdateDocumentByKeyValueFromDictionary()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Shashank Shukla"
-        var newJSONDoc = ["name":"Shashank"]//NSDictionary(object:"Shikha", forKey:"name")
-        storageService?.updateDocumentByKeyValue(dbName, collectionName:collectionName, key:value, value:value, newDataDict:newJSONDoc, completionBlock: { (success, response, exception)   -> Void in
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Shashank Shukla"
+        let newJSONDoc = ["name":"Shashank"]//NSDictionary(object:"Shikha", forKey:"name")
+        storageService?.updateDocumentByKeyValue(dbName, collectionName:collectionName, key:key, value:value, newDataDict:newJSONDoc, completionBlock: { (success, response, exception)   -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -568,20 +549,18 @@ class StorageServiceAPI: UITableViewController {
     
     func UpdateDocumentByQueryFromJsonString()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Nick"
-        var newJSONDoc = "{\"name\":\"Himanshu\"}"
-        var query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Nick"
+        let newJSONDoc = "{\"name\":\"Himanshu\"}"
+        let query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
         storageService?.updateDocumentByQuery(dbName, collectionName: collectionName,query:query,newJsonDoc:newJSONDoc, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -602,20 +581,18 @@ class StorageServiceAPI: UITableViewController {
     
     func UpdateDocumentByQueryFromDictionary()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Shikha"
-        var newJSONDoc = ["name":"Nick"]
-        var query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Shikha"
+        let newJSONDoc = ["name":"Nick"]
+        let query = QueryBuilder.buildQueryWithKey(key, value: value, andOperator:APP42_OP_EQUALS)
         storageService?.updateDocumentByQuery(dbName, collectionName:collectionName, query:query, newDataDict:newJSONDoc, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -636,19 +613,17 @@ class StorageServiceAPI: UITableViewController {
     
     func SaveOrUpdateDocumentByKeyValueFromJsonString()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Shikha"
-        var newJSONDoc = "{\"name\":\"Himanshu\"}"
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Shikha"
+        let newJSONDoc = "{\"name\":\"Himanshu\"}"
         storageService?.saveOrUpdateDocumentByKeyValue(dbName, collectionName: collectionName, key:key, value:value, newJsonDoc:newJSONDoc, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -667,19 +642,17 @@ class StorageServiceAPI: UITableViewController {
     }
     func SaveOrUpdateDocumentByKeyValueFromDictionary()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Shikha"
-        var newJSONDoc = ["name":""]//NSDictionary(object:"Nick John", forKey:"name")
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Shikha"
+        let newJSONDoc = ["name":""]//NSDictionary(object:"Nick John", forKey:"name")
         storageService?.saveOrUpdateDocumentByKeyValue(dbName, collectionName: collectionName,key:key,value:value,dataDict:newJSONDoc, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -698,18 +671,16 @@ class StorageServiceAPI: UITableViewController {
     }
     func AddOrUpdateKeys()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var docId:String = objectId as String
-        var newJSONDoc = ["name":"Nick Johnsan"]
+        let collectionName = "Demo"
+        let docId:String = objectId as String
+        let newJSONDoc = ["name":"Nick Johnsan"]
         storageService?.addOrUpdateKeys(dbName, collectionName:collectionName, docId:docId, dataDict:newJSONDoc, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -728,19 +699,17 @@ class StorageServiceAPI: UITableViewController {
     }
     func InsertJsonDocUsingMap()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var newJSONDoc = NSMutableDictionary()
+        let collectionName = "Demo"
+        let newJSONDoc = NSMutableDictionary()
         newJSONDoc["name"] = "Shephertz"
         newJSONDoc["age"] = 4
         storageService?.insertJsonDocUsingMap(dbName, collectionName: collectionName ,map:newJSONDoc, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var storage = response as! Storage
+                let storage = response as! Storage
                 NSLog("%@", storage.dbName)
                 NSLog("%@", storage.collectionName)
-                var jsonDocList = storage.jsonDocArray
+                let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
                     NSLog("%@",jsonDoc.createdAt)
@@ -760,13 +729,11 @@ class StorageServiceAPI: UITableViewController {
     
     func FindAllDocsCount()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
+        let collectionName = "Demo"
         storageService?.findAllDocumentsCount(dbName, collectionName:collectionName, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("%@", app42Response.strResponse)
                 NSLog("%d", app42Response.totalRecords)
             }
@@ -781,13 +748,10 @@ class StorageServiceAPI: UITableViewController {
     }
     func FindAllCollections()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
         storageService?.findAllCollections(dbName, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("%@", app42Response.strResponse)
                 NSLog("%@", app42Response.totalRecords)
             }
@@ -803,13 +767,11 @@ class StorageServiceAPI: UITableViewController {
     
     func DeleteAllDocuments()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
+        let collectionName = "Demo"
         storageService?.deleteAllDocuments(dbName, collectionName:collectionName, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("%@", app42Response.strResponse)
                 NSLog("%@", app42Response.isResponseSuccess)
             }
@@ -825,14 +787,12 @@ class StorageServiceAPI: UITableViewController {
     
     func DeleteDocumentById()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var docId = objectId as String
+        let collectionName = "Demo"
+        let docId = objectId as String
         storageService?.deleteDocumentById(dbName, collectionName:collectionName, docId:docId, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("%@", app42Response.strResponse)
                 NSLog("%@", app42Response.isResponseSuccess)
             }
@@ -847,15 +807,13 @@ class StorageServiceAPI: UITableViewController {
     }
     func DeleteDocumentsByKeyValue()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var key = "name"
-        var value = "Shephertz"
+        let collectionName = "Demo"
+        let key = "name"
+        let value = "Shephertz"
         storageService?.deleteDocumentsByKeyValue(dbName, collectionName: collectionName, key:key,value:value, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! App42Response
+                let app42Response = response as! App42Response
                 NSLog("%@", app42Response.strResponse)
                 NSLog("%@", app42Response.isResponseSuccess)
             }
@@ -870,15 +828,13 @@ class StorageServiceAPI: UITableViewController {
     }
     func MapReduce()
     {
-        var userName = "HimanshuSSharma"
-         
-        var collectionName = "Demo"
-        var mapFunction = "function map(){ emit(this.user,1);}"
-        var reduceFunction = "function reduce(key, val){var sum = 0; for(var n=0;n< val.length;n++){ sum = sum + val[n]; } return sum;}"
+        let collectionName = "Demo"
+        let mapFunction = "function map(){ emit(this.user,1);}"
+        let reduceFunction = "function reduce(key, val){var sum = 0; for(var n=0;n< val.length;n++){ sum = sum + val[n]; } return sum;}"
         storageService?.mapReduce(dbName, collectionName: collectionName,mapFunction:mapFunction ,reduceFunction:reduceFunction , completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
-                var app42Response = response as! NSString
+                let app42Response = response as! NSString
                 NSLog("%@", app42Response)
             }
             else

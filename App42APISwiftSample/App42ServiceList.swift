@@ -34,11 +34,11 @@ class App42ServiceList: UITableViewController {
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        var filePath:String = NSBundle.mainBundle().pathForResource("App42Services", ofType: "plist")!
+        let filePath:String = NSBundle.mainBundle().pathForResource("App42Services", ofType: "plist")!
         
         serviceList = NSDictionary(contentsOfFile: filePath)!
         servicesCount = (serviceList?.count)!
-        var allKeys:NSMutableArray = NSMutableArray(array: (serviceList?.allKeys)!)
+        let allKeys:NSMutableArray = NSMutableArray(array: (serviceList?.allKeys)!)
         
         sortedKeys = allKeys.sortedArrayUsingSelector(Selector("caseInsensitiveCompare:"))
         //NSLog("%@", sortedKeys!)
@@ -65,50 +65,56 @@ class App42ServiceList: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) 
 
         // Configure the cell...
-        var index = indexPath.row
+        let index = indexPath.row
         cell.textLabel!.text = sortedKeys?.objectAtIndex(index) as? String
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        var cellText = cell?.textLabel!.text
+        let cellText = cell?.textLabel!.text
         if cellText == "User Service"
         {
-            var userServiceAPI:UserServiceAPI = UserServiceAPI(style: UITableViewStyle.Plain)
+            let userServiceAPI:UserServiceAPI = UserServiceAPI(style: UITableViewStyle.Plain)
             userServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(userServiceAPI, animated: true)
         }
-        if cellText == "Game Service"
+        else if cellText == "Game Service"
         {
-            var gameServiceAPI:GameServiceAPI = GameServiceAPI(style: UITableViewStyle.Plain)
+            let gameServiceAPI:GameServiceAPI = GameServiceAPI(style: UITableViewStyle.Plain)
             gameServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(gameServiceAPI, animated: true)
         }
-        if cellText == "Storage Service"
+        else if cellText == "Storage Service"
         {
-            var storageServiceAPI:StorageServiceAPI = StorageServiceAPI(style: UITableViewStyle.Plain)
+            let storageServiceAPI:StorageServiceAPI = StorageServiceAPI(style: UITableViewStyle.Plain)
             storageServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(storageServiceAPI, animated: true)
         }
-        if cellText == "PushNotification Service"
+        else if cellText == "PushNotification Service"
         {
-            var pushServiceAPI:PushNotificationServiceAPI = PushNotificationServiceAPI(style: UITableViewStyle.Plain)
+            let pushServiceAPI:PushNotificationServiceAPI = PushNotificationServiceAPI(style: UITableViewStyle.Plain)
             pushServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(pushServiceAPI, animated: true)
         }
-        if cellText == "Scoreboard Service"
+        else if cellText == "Scoreboard Service"
         {
-            var sbServiceAPI:ScoreboardServiceAPI = ScoreboardServiceAPI(style: UITableViewStyle.Plain)
+            let sbServiceAPI:ScoreboardServiceAPI = ScoreboardServiceAPI(style: UITableViewStyle.Plain)
             sbServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(sbServiceAPI, animated: true)
         }
-        if cellText == "Reward Service"
+        else if cellText == "Reward Service"
         {
-            var rewardServiceAPI:RewardServiceAPI = RewardServiceAPI(style: UITableViewStyle.Plain)
+            let rewardServiceAPI:RewardServiceAPI = RewardServiceAPI(style: UITableViewStyle.Plain)
+            rewardServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(rewardServiceAPI, animated: true)
+        }
+        else if cellText == "Upload Service"
+        {
+            let rewardServiceAPI:UploadServiceAPI = UploadServiceAPI(style: UITableViewStyle.Plain)
             rewardServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(rewardServiceAPI, animated: true)
         }
