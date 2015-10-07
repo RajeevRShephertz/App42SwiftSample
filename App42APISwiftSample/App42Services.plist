@@ -161,5 +161,31 @@
 		<string>UploadFileForGroupFromPath</string>
 		<string>UploadFileForGroupWithData</string>
 	</array>
+	<key>Catalogue Service</key>
+	<array>
+		<string>CreateCatalogue</string>
+		<string>CreateCategory</string>
+		<string>AddItem</string>
+		<string>GetItems</string>
+		<string>GetItemsByCategory</string>
+		<string>GetItemsCountByCategory</string>
+		<string>GetItemsByCategoryByPaging</string>
+		<string>GetItemById</string>
+		<string>RemoveAllItems</string>
+		<string>RemoveItemsByCategory</string>
+		<string>RemoveItemById</string>
+	</array>
+	<key>Message Service</key>
+	<array>
+		<string>CreatePullQueue</string>
+		<string>DeletePullQueue</string>
+		<string>PurgePullQueue</string>
+		<string>PendingMessages</string>
+		<string>GetMessages</string>
+		<string>SendMessage</string>
+		<string>ReceiveMessage</string>
+		<string>ReceiveMessageByCorrelationId</string>
+		<string>RemoveMessage</string>
+	</array>
 </dict>
 </plist>

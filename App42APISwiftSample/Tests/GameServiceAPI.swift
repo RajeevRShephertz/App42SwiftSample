@@ -99,6 +99,7 @@ class GameServiceAPI: UITableViewController {
     
     func getAllGamesCount()
     {
+        
         gameService?.getAllGamesCount({ (success, response, exception) -> Void in
             if(success)
             {
@@ -118,7 +119,6 @@ class GameServiceAPI: UITableViewController {
     
     func getAllGames()
     {
-       
         gameService?.getAllGames({ (success, response, exception) -> Void in
             if(success)
             {
@@ -168,8 +168,10 @@ class GameServiceAPI: UITableViewController {
     
     func getGameByName()
     {
-        let gameName = "NinjaFight";
-        gameService?.getGameByName(gameName, completionBlock: { (success, response, exception) -> Void in
+        //let gameName = "NinjaFight";
+        let recommenderSimilarity = EUCLIDEAN_DISTANCE
+
+        gameService?.getGameByName(recommenderSimilarity, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
                 let game = response as! Game

@@ -41,7 +41,6 @@ class App42ServiceList: UITableViewController {
         let allKeys:NSMutableArray = NSMutableArray(array: (serviceList?.allKeys)!)
         
         sortedKeys = allKeys.sortedArrayUsingSelector(Selector("caseInsensitiveCompare:"))
-        //NSLog("%@", sortedKeys!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -117,6 +116,18 @@ class App42ServiceList: UITableViewController {
             let rewardServiceAPI:UploadServiceAPI = UploadServiceAPI(style: UITableViewStyle.Plain)
             rewardServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(rewardServiceAPI, animated: true)
+        }
+        else if cellText == "Catalogue Service"
+        {
+            let catalogueServiceAPI:CatalogueServiceAPI = CatalogueServiceAPI(style: UITableViewStyle.Plain)
+            catalogueServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(catalogueServiceAPI, animated: true)
+        }
+        else if cellText == "Message Service"
+        {
+            let messageServiceAPI:MessageServiceAPI = MessageServiceAPI(style: UITableViewStyle.Plain)
+            messageServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(messageServiceAPI, animated: true)
         }
     }
     

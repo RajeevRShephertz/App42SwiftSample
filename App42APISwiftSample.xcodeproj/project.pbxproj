@@ -20,6 +20,7 @@
 		5D98F2621A406B2F004FE767 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98F2611A406B2F004FE767 /* CoreTelephony.framework */; };
 		5D98F2641A406B3B004FE767 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D98F2631A406B3B004FE767 /* SystemConfiguration.framework */; };
 		5D9B56081B1CC22C0097BB39 /* Shephertz_App42_iOS_API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9B56071B1CC22C0097BB39 /* Shephertz_App42_iOS_API.framework */; };
+		5DBAFA0A1BC531AF0085C22E /* MessageServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBAFA091BC531AF0085C22E /* MessageServiceAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		5DD86B6F1A4812B100D6B84F /* UserServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */; };
 		5DD9A1731A42BAA70045B5D9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DD9A1721A42BAA70045B5D9 /* CoreFoundation.framework */; };
 		D815ABA21A5D039B0040E29E /* PushNotificationServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D815AB9D1A5D039B0040E29E /* PushNotificationServiceAPI.swift */; };
@@ -57,6 +58,7 @@
 		5D98F2611A406B2F004FE767 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5D98F2631A406B3B004FE767 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5D9B56071B1CC22C0097BB39 /* Shephertz_App42_iOS_API.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Shephertz_App42_iOS_API.framework; sourceTree = "<group>"; };
+		5DBAFA091BC531AF0085C22E /* MessageServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageServiceAPI.swift; sourceTree = "<group>"; };
 		5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceAPI.swift; sourceTree = "<group>"; };
 		5DD9A1721A42BAA70045B5D9 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		D815AB9D1A5D039B0040E29E /* PushNotificationServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationServiceAPI.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */,
 				5D0A9C441B20346000491A4C /* UploadServiceAPI.swift */,
 				5D2357471BC422040013BE53 /* CatalogueServiceAPI.swift */,
+				5DBAFA091BC531AF0085C22E /* MessageServiceAPI.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			files = (
 				D815ABA41A5D039B0040E29E /* ScoreboardServiceAPI.swift in Sources */,
 				D815ABA21A5D039B0040E29E /* PushNotificationServiceAPI.swift in Sources */,
+				5DBAFA0A1BC531AF0085C22E /* MessageServiceAPI.swift in Sources */,
 				D815ABA51A5D039B0040E29E /* StorageServiceAPI.swift in Sources */,
 				5D9781A61A43FF50000F1003 /* App42ServiceList.swift in Sources */,
 				5D2357481BC422040013BE53 /* CatalogueServiceAPI.swift in Sources */,
@@ -415,7 +419,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Rajeev/Documents/App42_GitHubRepo/App42_iOS_API/Products,
-					/Users/shephertz/Desktop/App42GitHubRepo/App42_iOS_SDK/3.2/AsyncAPI,
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = App42APISwiftSample/Info.plist;
@@ -438,7 +441,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Rajeev/Documents/App42_GitHubRepo/App42_iOS_API/Products,
-					/Users/shephertz/Desktop/App42GitHubRepo/App42_iOS_SDK/3.2/AsyncAPI,
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = App42APISwiftSample/Info.plist;
