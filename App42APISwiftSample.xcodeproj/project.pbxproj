@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D087A331B1D92FB00B9EC94 /* GameServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */; };
 		5D0A9C451B20346000491A4C /* UploadServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0A9C441B20346000491A4C /* UploadServiceAPI.swift */; };
-		5D74CCAD1BC3E4D100CE5291 /* CatalogueServiceAPITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D74CCAC1BC3E4D100CE5291 /* CatalogueServiceAPITableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		5D2357481BC422040013BE53 /* CatalogueServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2357471BC422040013BE53 /* CatalogueServiceAPI.swift */; settings = {ASSET_TAGS = (); }; };
 		5D9781A61A43FF50000F1003 /* App42ServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9781A51A43FF50000F1003 /* App42ServiceList.swift */; };
 		5D9781A81A43FF94000F1003 /* App42Services.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D9781A71A43FF94000F1003 /* App42Services.plist */; };
 		5D98F23C1A40603A004FE767 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98F23B1A40603A004FE767 /* AppDelegate.swift */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameServiceAPI.swift; sourceTree = "<group>"; };
 		5D0A9C441B20346000491A4C /* UploadServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadServiceAPI.swift; sourceTree = "<group>"; };
-		5D74CCAC1BC3E4D100CE5291 /* CatalogueServiceAPITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogueServiceAPITableViewController.swift; sourceTree = "<group>"; };
+		5D2357471BC422040013BE53 /* CatalogueServiceAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogueServiceAPI.swift; sourceTree = "<group>"; };
 		5D9781A51A43FF50000F1003 /* App42ServiceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App42ServiceList.swift; sourceTree = "<group>"; };
 		5D9781A71A43FF94000F1003 /* App42Services.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = App42Services.plist; sourceTree = "<group>"; };
 		5D98F2361A40603A004FE767 /* App42APISwiftSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App42APISwiftSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,7 +157,7 @@
 				5DD86B6E1A4812B100D6B84F /* UserServiceAPI.swift */,
 				5D087A321B1D92FB00B9EC94 /* GameServiceAPI.swift */,
 				5D0A9C441B20346000491A4C /* UploadServiceAPI.swift */,
-				5D74CCAC1BC3E4D100CE5291 /* CatalogueServiceAPITableViewController.swift */,
+				5D2357471BC422040013BE53 /* CatalogueServiceAPI.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -279,11 +279,11 @@
 				D815ABA21A5D039B0040E29E /* PushNotificationServiceAPI.swift in Sources */,
 				D815ABA51A5D039B0040E29E /* StorageServiceAPI.swift in Sources */,
 				5D9781A61A43FF50000F1003 /* App42ServiceList.swift in Sources */,
+				5D2357481BC422040013BE53 /* CatalogueServiceAPI.swift in Sources */,
 				5D087A331B1D92FB00B9EC94 /* GameServiceAPI.swift in Sources */,
 				5D0A9C451B20346000491A4C /* UploadServiceAPI.swift in Sources */,
 				5DD86B6F1A4812B100D6B84F /* UserServiceAPI.swift in Sources */,
 				5D98F23C1A40603A004FE767 /* AppDelegate.swift in Sources */,
-				5D74CCAD1BC3E4D100CE5291 /* CatalogueServiceAPITableViewController.swift in Sources */,
 				D815ABA31A5D039B0040E29E /* RewardServiceAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
