@@ -31,6 +31,10 @@
 		<string>Logout</string>
 		<string>CreateUserWithProfile</string>
 		<string>GetUsersByGroup</string>
+		<string>ResetUserPasswordWithCustomName</string>
+		<string>ResetUserPasswordWithEmailVerification</string>
+		<string>GetAllUsersWithAdvancedSearch</string>
+		<string>GetProfileWithAuthenticateUser</string>
 	</array>
 	<key>Reward Service</key>
 	<array>
@@ -186,6 +190,25 @@
 		<string>ReceiveMessage</string>
 		<string>ReceiveMessageByCorrelationId</string>
 		<string>RemoveMessage</string>
+	</array>
+	<key>Achievement Service</key>
+	<array>
+		<string>CreateAchievementWithName</string>
+		<string>EarnAchievementWithName</string>
+		<string>GetAllAchievementsForUser</string>
+		<string>GetAllAchievementsForUserInAGame</string>
+		<string>GetAllAchievements</string>
+		<string>GetAchievementByName</string>
+		<string>GetAllUsersWithAchievement</string>
+	</array>
+	<key>Timer Service</key>
+	<array>
+		<string>CreateOrUpdateTimerWithName</string>
+		<string>StartTimerWithName</string>
+		<string>IsTimerActive</string>
+		<string>CancelTimerWithName</string>
+		<string>DeleteTimerWithName</string>
+		<string>GetCurrentTime</string>
 	</array>
 </dict>
 </plist>

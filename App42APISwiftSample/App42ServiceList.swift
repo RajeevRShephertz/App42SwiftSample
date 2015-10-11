@@ -129,6 +129,18 @@ class App42ServiceList: UITableViewController {
             messageServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(messageServiceAPI, animated: true)
         }
+        else if cellText == "Achievement Service"
+        {
+            let achievementServiceAPI:AchievementServiceAPI = AchievementServiceAPI(style: UITableViewStyle.Plain)
+            achievementServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(achievementServiceAPI, animated: true)
+        }
+        else if cellText == "Timer Service"
+        {
+            let timerServiceAPI:TimerServiceAPI = TimerServiceAPI(style: UITableViewStyle.Plain)
+            timerServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(timerServiceAPI, animated: true)
+        }
     }
     
     

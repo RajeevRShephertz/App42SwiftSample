@@ -11,12 +11,11 @@ import UIKit
 class MessageServiceAPI: UITableViewController {
 
     var apiList:NSArray? = nil
-    var queueService:QueueService? = nil
+    let queueService = App42API.buildQueueService() as? QueueService
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Message Service"
-        queueService = App42API.buildQueueService() as? QueueService
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
     }
     
