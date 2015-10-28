@@ -162,8 +162,8 @@ class StorageServiceAPI: UITableViewController {
     
     func InsertDocFromJsonString()
     {
-        let userName = "HimanshuSSharma"
-        let collectionName = "Demo"
+        let userName = "bhavika"
+        let collectionName = "Demo1"
         let jsonString = "{\"Name\":\"Nick\",\"Age\":24}"
         App42API.setLoggedInUser(userName)
         storageService?.insertJSONDocument(dbName, collectionName: collectionName, json:jsonString, completionBlock: { (success, response, exception) -> Void in
@@ -175,7 +175,6 @@ class StorageServiceAPI: UITableViewController {
                 let jsonDocList = storage.jsonDocArray
                 for jsonDoc in jsonDocList {
                     NSLog("%@",jsonDoc.docId)
-                    self.objectId = jsonDoc.docId
                     NSLog("%@",jsonDoc.createdAt)
                     NSLog("%@",jsonDoc.updatedAt)
                     NSLog("%@",jsonDoc.jsonDoc)
@@ -703,6 +702,7 @@ class StorageServiceAPI: UITableViewController {
         let newJSONDoc = NSMutableDictionary()
         newJSONDoc["name"] = "Shephertz"
         newJSONDoc["age"] = 4
+        
         storageService?.insertJsonDocUsingMap(dbName, collectionName: collectionName ,map:newJSONDoc, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {

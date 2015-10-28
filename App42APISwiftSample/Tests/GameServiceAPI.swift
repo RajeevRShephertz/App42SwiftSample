@@ -78,8 +78,8 @@ class GameServiceAPI: UITableViewController {
     
     func createGame()
     {
-        let gameName = "NinjaFight"
-        let description = "Ninja Fight"
+        let gameName = "AngryBirds"
+        let description = "ANgry Birds"
         gameService?.createGame(gameName, gameDescription: description, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -124,7 +124,8 @@ class GameServiceAPI: UITableViewController {
             {
                 let games = response as! NSArray
                 
-                for game in games{
+                for game in games
+                {
                     NSLog("Game Name = %@", game.name)
                     NSLog("Description = %@", game.description)
                 }
@@ -168,10 +169,8 @@ class GameServiceAPI: UITableViewController {
     
     func getGameByName()
     {
-        //let gameName = "NinjaFight";
-        let recommenderSimilarity = EUCLIDEAN_DISTANCE
-
-        gameService?.getGameByName(recommenderSimilarity, completionBlock: { (success, response, exception) -> Void in
+        let gameName = "AngryBirds";
+        gameService?.getGameByName(gameName, completionBlock:{ (success, response, exception) -> Void in
             if(success)
             {
                 let game = response as! Game

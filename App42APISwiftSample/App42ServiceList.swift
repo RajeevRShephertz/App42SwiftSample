@@ -11,8 +11,8 @@ import UIKit
 
 class App42ServiceList: UITableViewController {
 
-    let apiKey = "67359321652c10b15fd5f659d096a2051745aa4f339b936d6ce5dccb165de863"
-    let secretKey = "2d44878dd428046f23bd4b3807ce83e982db9900f4c5a8305255da4764c76610"
+    let apiKey = "9aadd81587bdcf5de6487bfb07d4f3b152fbf9000b899f8c71285eff700ce69e"
+    let secretKey = "a784700e095021b1539e9804b85842dbd24f2040e7bba5a507d19ec8fd62fcf3"
     
     
     var serviceList:NSDictionary? = nil
@@ -140,6 +140,18 @@ class App42ServiceList: UITableViewController {
             let timerServiceAPI:TimerServiceAPI = TimerServiceAPI(style: UITableViewStyle.Plain)
             timerServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(timerServiceAPI, animated: true)
+        }
+        else if cellText == "Buddy Service"
+        {
+            let buddyServiceAPI:BuddyServiceAPI = BuddyServiceAPI(style: UITableViewStyle.Plain)
+            buddyServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(buddyServiceAPI, animated: true)
+        }
+        else if cellText == "Log Service"
+        {
+            let logServiceAPI:LoggingServiceAPI = LoggingServiceAPI(style: UITableViewStyle.Plain)
+            logServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(logServiceAPI, animated: true)
         }
     }
     

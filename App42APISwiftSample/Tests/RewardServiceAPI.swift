@@ -110,8 +110,8 @@ class RewardServiceAPI: UITableViewController {
     func CreateReward()
     {
         NSLog("createReward")
-        let rewardName = "DeemedPoints"
-        let description = "DeemedPoints added"
+        let rewardName = "test"
+        let description = "testing"
         rewardService?.createReward(rewardName, rewardDescription: description, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -131,7 +131,7 @@ class RewardServiceAPI: UITableViewController {
     func GetRewardByName()
     {
         NSLog("GetRewardByName")
-        let rewardName = "DeemedPoints"
+        let rewardName = "test"
         rewardService?.getRewardByName(rewardName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -214,9 +214,9 @@ class RewardServiceAPI: UITableViewController {
     func EarnRewards()
     {
         NSLog("Create User")
-        let rewardName = "DeemedPoints"
-        let userName = "Himanshu"
-        let gameName = "MorzillaTale"
+        let rewardName = "test"
+        let userName = "bhavika"
+        let gameName = "angrybirds"
         let rewardPoint:Double = 1000
         rewardService?.earnRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, completionBlock: { (success, response, exception) -> Void in
             if(success)
@@ -254,10 +254,10 @@ class RewardServiceAPI: UITableViewController {
     func RedeemRewards()
     {
         NSLog("Create User")
-        let rewardName = "DeemedPoints"
-        let userName = "Himanshu"
-        let gameName = "MorzillaTale"
-        let rewardPoint:Double = 1000
+        let rewardName = "test"
+        let userName = "bhavika"
+        let gameName = "angrybirds"
+        let rewardPoint:Double = 2000
         rewardService?.redeemRewards(gameName, gameUserName:userName,rewardName:rewardName, rewardPoints:rewardPoint, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -278,8 +278,8 @@ class RewardServiceAPI: UITableViewController {
     func GetGameRewardPointsForUser()
     {
         NSLog("getGameRewardPointsForUser")
-        let userName = "Himanshu"
-        let gameName = "MorzillaTale"
+        let userName = "bhavika"
+        let gameName = "angrybirds"
         rewardService?.getGameRewardPointsForUser(gameName, userName: userName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -301,8 +301,8 @@ class RewardServiceAPI: UITableViewController {
     func GetTopNRewardEarners()
     {
         NSLog("getTopNRewardEarners")
-        let rewardName = "DeemedPoints"
-        let gameName = "MorzillaTale"
+        let rewardName = "test"
+        let gameName = "angrybirds"
         rewardService?.getTopNRewardEarners(gameName, rewardName: rewardName, max:10, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -325,8 +325,8 @@ class RewardServiceAPI: UITableViewController {
     func GetAllRewardsByUser()
     {
         NSLog("GetAllRewardsByUser")
-        let rewardName = "DeemedPoints"
-        let userName = "Himanshu"
+        let rewardName = "test"
+        let userName = "bhavika"
         rewardService?.getAllRewardsByUser(userName, rewardName: rewardName, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {
@@ -349,9 +349,9 @@ class RewardServiceAPI: UITableViewController {
     func GetTopNRewardEarnersByGroup()
     {
         NSLog("GetTopNRewardEarnersByGroup")
-        let rewardName = "DeemedPoints"
-        let gameName = "MorzillaTale"
-        let userList = ["Himanshu","Rajeev","Sachin"]
+        let rewardName = "test"
+        let gameName = "angrybirds"
+        let userList = ["Bhavika","Rajeev"]
         rewardService?.getTopNRewardEarnersByGroup(gameName, rewardName: rewardName, userList:userList, completionBlock: { (success, response, exception) -> Void in
             if(success)
             {

@@ -80,6 +80,11 @@ class ScoreboardServiceAPI: UITableViewController {
         {
             GetTopRankings()
         }
+        else if cellText == "GetTopNRankings"
+        {
+            GetTopRankings()
+        }
+
         else if cellText == "GetTopRankersByGroup"
         {
             GetTopRankersByGroup()
@@ -147,14 +152,15 @@ class ScoreboardServiceAPI: UITableViewController {
             if(success)
             {
                 let game = response as! Game
-                NSLog("%@", game.name)
+                NSLog("GameName is %@", game.name)
                 let scoreList = game.scoreList
-                for score in scoreList {
-                    NSLog("%@", score.userName)
+                for score in scoreList
+                {
+                    NSLog("userName is %@", score.userName)
                     let scoreValue = score.value as Double
-                    NSLog("%lf",scoreValue)
-                    NSLog("%@", score.scoreId)
-                    self.editScoreId = score.scoreId
+                    NSLog("Score is %lf",scoreValue)
+                    NSLog("ScoreId is%@", score.scoreId)
+                    //self.editScoreId = score.scoreId
                 }
             }
             else
@@ -174,13 +180,13 @@ class ScoreboardServiceAPI: UITableViewController {
             if(success)
             {
                 let game = response as! Game
-                NSLog("%@", game.name)
+                NSLog("Game Name is %@", game.name)
                 let scoreList = game.scoreList
                 for score in scoreList {
-                    NSLog("%@", score.userName)
+                    NSLog("Username is %@", score.userName)
                     let scoreValue = score.value as Double
-                    NSLog("%lf",scoreValue)
-                    NSLog("%@", score.scoreId)
+                    NSLog("Score is %lf",scoreValue)
+                    NSLog("Score Id is%@", score.scoreId)
                 }
             }
             else
@@ -299,6 +305,34 @@ class ScoreboardServiceAPI: UITableViewController {
         })
     }
     
+    func GetTopNRankings()
+    {
+        let gameName  = "NinjaFight"
+        let max:Int32 = 5
+        scoreBoardService?.getTopNRankings(gameName, max:max, completionBlock: { (success, response, exception) -> Void in
+            if(success)
+            {
+                let game = response as! Game
+                NSLog("%@", game.name)
+                let scoreList = game.scoreList
+                for score in scoreList
+                {
+                    NSLog("%@", score.userName)
+                    let scoreValue = score.value as Double
+                    NSLog("%lf",scoreValue)
+                    NSLog("%@", score.scoreId)
+                }
+            }
+            else
+            {
+                NSLog("%@", exception.reason!)
+                NSLog("%d", exception.appErrorCode)
+                NSLog("%d", exception.httpErrorCode)
+                NSLog("%@", exception.userInfo!)
+            }
+        })
+    }
+    
     func GetTopRankersByGroup()
     {
         let gameName  = "NinjaFight"
@@ -384,8 +418,8 @@ class ScoreboardServiceAPI: UITableViewController {
     func GetTopNRankersInDateRange()
     {
         let gameName  = "NinjaFight"
-        let startDate = NSDate().laterDate(NSDate())
-        let endDate = NSDate()
+        let startDate = NSDate(timeIntervalSinceNow: -24*60*60*2)
+        let endDate = NSDate(timeIntervalSinceNow: -24*60*60)//NSDate()
         let max:Int32 = 10
         
         scoreBoardService?.getTopNRankers(gameName,startDate:startDate,endDate:endDate,max:max, completionBlock: { (success, response, exception) -> Void in
@@ -493,7 +527,7 @@ class ScoreboardServiceAPI: UITableViewController {
    
     func EditScoreValueById()
     {//First run saveScore to get scoreId or assign a valid scoreId to following variable
-        let scoreId:String = editScoreId as! String
+        let scoreId = "Buh5BqZqgszsogi2cSINXJsTIEM="      //:String = editScoreId as! String
         let score:Double = 9000
          scoreBoardService?.editScoreValueById(scoreId, gameScore:score, completionBlock: { (success, response, exception) -> Void in
             if(success)
@@ -684,5 +718,6 @@ class ScoreboardServiceAPI: UITableViewController {
             }
         })
     }
+   
     
 }

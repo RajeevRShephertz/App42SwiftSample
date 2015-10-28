@@ -210,5 +210,54 @@
 		<string>DeleteTimerWithName</string>
 		<string>GetCurrentTime</string>
 	</array>
+	<key>Buddy Service</key>
+	<array>
+		<string>SendFriendRequestFromUser</string>
+		<string>GetFriendRequest</string>
+		<string>AcceptFriendRequestFromBuddy</string>
+		<string>RejectFriendRequestFromBuddy</string>
+		<string>CreateGroup</string>
+		<string>GetAllFriends</string>
+		<string>AddFriends</string>
+		<string>CheckedInWithUser</string>
+		<string>GetFriendsOfUser</string>
+		<string>GetAllGroups</string>
+		<string>GetAllFriendsOfUser</string>
+		<string>BlockFriendRequestFromBuddy</string>
+		<string>BlockBuddy</string>
+		<string>UnblockBuddy</string>
+		<string>SendMessageToGroup</string>
+		<string>SendMessageToFriend</string>
+		<string>SendMessageToFriends</string>
+		<string>GetAllMessages</string>
+		<string>GetAllMessagesFromBuddy</string>
+		<string>GetAllMessagesFromGroup</string>
+		<string>UnFriend</string>
+		<string>DeleteMessageById</string>
+		<string>DeleteMessageByIds</string>
+	</array>
+	<key>Log Service</key>
+	<array>
+		<string>Info</string>
+		<string>Debug</string>
+		<string>Fatal</string>
+		<string>Error</string>
+		<string>FetchLogsCountByModule</string>
+		<string>FetchLogsByModule</string>
+		<string>FetchLogsByModuleAndText</string>
+		<string>fetchLogsCountByInfo</string>
+		<string>FetchLogsCountByDebug</string>
+		<string>fetchLogsCountByError</string>
+		<string>fetchLogsCountByFatal</string>
+		<string>FetchLogsByInfo</string>
+		<string>fetchLogsByDebug</string>
+		<string>fetchLogsByError</string>
+		<string>FetchLogsByDebug</string>
+		<string>fetchLogsByError</string>
+		<string>fetchLogsByFatal</string>
+		<string>FetchLogsByModuleAndTextByPaging</string>
+		<string>FetchLogsCountByModuleAndText</string>
+		<string>FetchLogsByInfoByPaging</string>
+	</array>
 </dict>
 </plist>
