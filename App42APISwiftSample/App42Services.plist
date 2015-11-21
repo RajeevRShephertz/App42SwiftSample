@@ -247,17 +247,209 @@
 		<string>FetchLogsByModuleAndText</string>
 		<string>fetchLogsCountByInfo</string>
 		<string>FetchLogsCountByDebug</string>
-		<string>fetchLogsCountByError</string>
-		<string>fetchLogsCountByFatal</string>
+		<string>FetchLogsCountByError</string>
+		<string>FetchLogsCountByFatal</string>
 		<string>FetchLogsByInfo</string>
-		<string>fetchLogsByDebug</string>
-		<string>fetchLogsByError</string>
+		<string>FetchLogsByError</string>
 		<string>FetchLogsByDebug</string>
 		<string>fetchLogsByError</string>
-		<string>fetchLogsByFatal</string>
+		<string>FetchLogsByFatal</string>
 		<string>FetchLogsByModuleAndTextByPaging</string>
 		<string>FetchLogsCountByModuleAndText</string>
 		<string>FetchLogsByInfoByPaging</string>
+		<string>FetchLogsByDebugByPaging</string>
+		<string>FetchLogsByErrorByPaging</string>
+		<string>FetchLogsByFatalByPaging</string>
+		<string>FetchLogByDateRange</string>
+		<string>FetchLogCountByDateRange</string>
+		<string>SetEventWithName</string>
+		<string>SetEventWithNameForModule</string>
+	</array>
+	<key>Avatar Service</key>
+	<array>
+		<string>CreateAvatarWithName</string>
+		<string>CreateAvatarFromFacebookWithName</string>
+		<string>CreateAvatarFromFileDataWithName</string>
+		<string>CreateAvatarFromWebURLWithName</string>
+		<string>GetAvatarByName</string>
+		<string>GetAllAvatarsForUser</string>
+		<string>GetCurrentAvatar</string>
+		<string>ChangeCurrentAvatarWithName</string>
+	</array>
+	<key>Email Service</key>
+	<array>
+		<string>CreateEmailConfiguration</string>
+		<string>GetEmailConfiguration</string>
+		<string>SendEmail</string>
+		<string>RemoveEmailConfiguration</string>
+		<string>SendMailwithcustominfo</string>
+		<string>RemoveEmailConfigurationexceptionhandling</string>
+	</array>
+	<key>Event Service</key>
+	<array>
+		<string>TrackEventWithName</string>
+		<string>StartActivityWithName</string>
+		<string>EndActivityWithName</string>
+		<string>SetLoggedInUserProperties</string>
+		<string>UpdateLoggedInUserProperties</string>
+	</array>
+	<key>Geo Service</key>
+	<array>
+		<string>CreateGeoPoints</string>
+		<string>GetAllPoints</string>
+		<string>GetAllPointsByPaging</string>
+		<string>GetAllStorage</string>
+		<string>UpdateLoggedInUserProperties</string>
+		<string>GetAllStorageByPaging</string>
+		<string>GetNearByPoint</string>
+		<string>GetPointsWithInCircle</string>
+		<string>GetNearByPointsByMaxDistance</string>
+		<string>DeleteGeoPoints</string>
+		<string>DeleteStorage</string>
+	</array>
+	<key>Custom Code Service</key>
+	<array>
+		<string>RunJavaCode</string>
+	</array>
+	<key>Gift Service</key>
+	<array>
+		<string>CreateGiftWithName</string>
+		<string>DistributeGiftsWithName</string>
+		<string>SendGiftWithName</string>
+		<string>RequestGiftWithName</string>
+		<string>GetGiftRequestWithName</string>
+		<string>AcceptGiftRequestWithId</string>
+		<string>RejectGiftRequestWithId</string>
+		<string>RemoveGiftWithRequestId</string>
+		<string>GetAllGifts</string>
+		<string>GetGiftCountWithName</string>
+		<string>GetGiftByName</string>
+		<string>GetGiftsByTag</string>
+		<string>DeleteGiftByName</string>
+	</array>
+	<key>PhotoGalleryService</key>
+	<array>
+		<string>CreateAlbum</string>
+		<string>GetAlbumsCount</string>
+		<string>GetAlbums</string>
+		<string>GetAlbumsByPaging</string>
+		<string>GetAlbumByName</string>
+		<string>RemoveAlbum</string>
+		<string>AddPhotoFromPath</string>
+		<string>UpdatePhoto</string>
+		<string>AddPhotoWithData</string>
+		<string>AddTagToPhoto</string>
+		<string>GetPhotos</string>
+		<string>GetTaggedPhotos</string>
+		<string>GetPhotosCountByAlbumName</string>
+		<string>GetPhotosByAlbumName</string>
+		<string>GetPhotosByAlbumNameByPaging</string>
+		<string>GetPhotosByAlbumAndPhotoName</string>
+		<string>RemovePhoto</string>
+		<string>GrantAccessToPhoto</string>
+		<string>RevokeAccessToPhoto</string>
+	</array>
+	<key>Recommend Service</key>
+	<array>
+		<string>LoadPreferenceFile</string>
+		<string>LoadPreferenceFileWithData</string>
+		<string>AddOrUpdatePreference</string>
+		<string>UserBasedNeighborhood</string>
+		<string>UserBasedThreshold</string>
+		<string>UserBasedNeighborhoodBySimilarity</string>
+		<string>UserBasedThresholdBySimilarity</string>
+		<string>ItemBased</string>
+		<string>SlopeOne</string>
+		<string>UserBasedThresholdForAll</string>
+		<string>UserBasedNeighborhoodBySimilarityForAll</string>
+		<string>UserBasedThresholdBySimilarityForAll</string>
+		<string>ItemBasedForAll</string>
+		<string>ItemBasedBySimilarityForAll</string>
+		<string>SlopeOneForAll</string>
+		<string>ItemBasedBySimilarity</string>
+		<string>UserBasedNeighborhoodForAll</string>
+		<string>DeleteAllPreferences</string>
+	</array>
+	<key>Cart Service</key>
+	<array>
+		<string>CreateCart</string>
+		<string>GetCartDetails</string>
+		<string>AddItem</string>
+		<string>GetItems</string>
+		<string>GetItem</string>
+		<string>RemoveItem</string>
+		<string>RemoveAllItems</string>
+		<string>IsEmpty</string>
+		<string>CheckOut</string>
+		<string>Payment</string>
+		<string>GetPaymentsByUser</string>
+		<string>GetPaymentByCart</string>
+		<string>GetPaymentsByUserAndStatus</string>
+		<string>GetPaymentsByStatus</string>
+		<string>GetPaymentHistoryByUser</string>
+		<string>GetPaymentHistoryAll</string>
+		<string>IncreaseQuantity</string>
+		<string>DecreaseQuantity</string>
+	</array>
+	<key>Social Service</key>
+	<array>
+		<string>LinkUserFacebookAccount</string>
+		<string>LinkUserFacebookAccountWithAppID</string>
+		<string>UpdateFacebookStatus</string>
+		<string>LinkUserTwitterAccount</string>
+		<string>LinkUserTwitterAccountWithConsumerKey</string>
+		<string>UpdateTwitterStatus</string>
+		<string>LinkUserLinkedInAccount</string>
+		<string>LinkUserLinkedInAccountApiKey</string>
+		<string>UpdateLinkedInStatus</string>
+		<string>UpdateSocialStatusForAll</string>
+		<string>GetFacebookFriendsFromLinkUser</string>
+		<string>GetFacebookFriendsFromAccessToken</string>
+		<string>FacebookPublishStream</string>
+		<string>FacebookLinkPost</string>
+		<string>FacebookLinkPostWithCustomThumbnail</string>
+		<string>GetFacebookProfile</string>
+		<string>GetFacebookProfilesFromIds</string>
+	</array>
+	<key>Review Service</key>
+	<array>
+		<string>CreateReview</string>
+		<string>GetAllReviews</string>
+		<string>GetAllReviewsCount</string>
+		<string>GetAllReviewsByPaging</string>
+		<string>GetAverageReviewByItem</string>
+		<string>GetReviewsCountByItem</string>
+		<string>GetReviewsByItemByPaging</string>
+		<string>GetHighestReviewByItem</string>
+		<string>GetLowestReviewByItem</string>
+		<string>GetAverageReviewByItemByPaging</string>
+		<string>GetReviewsCountByItemAndRating</string>
+		<string>AddComment</string>
+		<string>GetCommentsByItem</string>
+		<string>Mute</string>
+		<string>Unmute</string>
+		<string>DeleteReviewByReviewId</string>
+		<string>DeleteCommentByCommentId</string>
+		<string>GetAllReviewsByUser</string>
+	</array>
+	<key>ABTest Service</key>
+	<array>
+		<string>Execute</string>
+		<string>GoalAchievedForTest</string>
+		<string>ExecuteDataDriven</string>
+		<string>IsActive</string>
+	</array>
+	<key>Session Service</key>
+	<array>
+		<string>GetSession</string>
+		<string>Getsessioncreate</string>
+		<string>Invalidate</string>
+		<string>SetAttribute</string>
+		<string>GetAttribute</string>
+		<string>GetAllAttributes</string>
+		<string>RemoveAttribute</string>
+		<string>RemoveAllAttribute</string>
+		<string>IsActive</string>
 	</array>
 </dict>
 </plist>

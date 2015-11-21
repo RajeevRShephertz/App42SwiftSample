@@ -11,8 +11,8 @@ import UIKit
 
 class App42ServiceList: UITableViewController {
 
-    let apiKey = "9aadd81587bdcf5de6487bfb07d4f3b152fbf9000b899f8c71285eff700ce69e"
-    let secretKey = "a784700e095021b1539e9804b85842dbd24f2040e7bba5a507d19ec8fd62fcf3"
+    let apiKey = "b7915f2fca1fb7f53f4f519d6d79dae11b7c948ccc5511ef5ad9d19eceb6376f"
+    let secretKey = "f5f1d84b849d459ef3217ef12ffd2931474379783402711c23908b464629ecdf"
     
     
     var serviceList:NSDictionary? = nil
@@ -153,7 +153,86 @@ class App42ServiceList: UITableViewController {
             logServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
             self.navigationController?.pushViewController(logServiceAPI, animated: true)
         }
-    }
+     /*   else if cellText == "Avatar Service"
+        {
+            let avatarServiceAPI:AvatarServiceAPI = AvatarServiceAPI(style: UITableViewStyle.Plain)
+            avatarServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(avatarServiceAPI, animated: true)
+        }*/
+        else if cellText == "Email Service"
+        {
+            let emailServiceAPI:EmailServiceAPI = EmailServiceAPI(style: UITableViewStyle.Plain)
+            emailServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(emailServiceAPI, animated: true)
+        }
+        else if cellText == "Event Service"
+        {
+            let eventServiceAPI:EventServiceAPI = EventServiceAPI(style: UITableViewStyle.Plain)
+            eventServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(eventServiceAPI, animated: true)
+        }
+        else if cellText == "Geo Service"
+        {
+            let geoServiceAPI:GeoServiceAPI = GeoServiceAPI(style: UITableViewStyle.Plain)
+            geoServiceAPI.apiList = serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(geoServiceAPI, animated: true)
+        }
+        else if cellText == "Custom Code Service"
+        {
+            let customCodeServiceAPI:CustomCodeServiceAPI = CustomCodeServiceAPI(style: UITableViewStyle.Plain)
+            customCodeServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(customCodeServiceAPI, animated: true)
+        }
+        else if cellText == "Gift Service"
+        {
+            let giftServiceAPI:GiftServiceAPI = GiftServiceAPI(style: UITableViewStyle.Plain)
+            giftServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(giftServiceAPI, animated: true)
+        }
+        else if cellText == "PhotoGalleryService"
+        {
+            let photogalleryServiceAPI:PhotoGalleryServiceAPI = PhotoGalleryServiceAPI(style: UITableViewStyle.Plain)
+            photogalleryServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(photogalleryServiceAPI, animated: true)
+        }
+        else if cellText == "Recommend Service"
+        {
+            let recommenderServiceAPI:RecommenderServiceAPI = RecommenderServiceAPI(style: UITableViewStyle.Plain)
+            recommenderServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(recommenderServiceAPI, animated: true)
+        }
+        else if cellText == "Cart Service"
+        {
+            let cartServiceAPI:CartServiceAPI = CartServiceAPI(style: UITableViewStyle.Plain)
+            cartServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(cartServiceAPI, animated: true)
+        }
+        else if cellText == "Social Service"
+        {
+            let socialServiceAPI:SocialServiceAPI = SocialServiceAPI(style: UITableViewStyle.Plain)
+            socialServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(socialServiceAPI, animated: true)
+        }
+        else if cellText == "Review Service"
+        {
+            let reviewServiceAPI:ReviewServiceAPI = ReviewServiceAPI(style: UITableViewStyle.Plain)
+            reviewServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(reviewServiceAPI, animated: true)
+        }
+        else if cellText == "ABTest Service"
+        {
+            let abTestServiceAPI:ABTestServiceAPI = ABTestServiceAPI(style: UITableViewStyle.Plain)
+            abTestServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(abTestServiceAPI, animated: true)
+        }
+        else if cellText == "Session Service"
+        {
+            let sessionServiceAPI:SessionServiceAPI = SessionServiceAPI(style: UITableViewStyle.Plain)
+            sessionServiceAPI.apiList=serviceList?.objectForKey(cellText!) as? NSArray
+            self.navigationController?.pushViewController(sessionServiceAPI, animated: true)
+        }
+
+        
     
     
     /*
@@ -201,4 +280,5 @@ class App42ServiceList: UITableViewController {
     }
     */
 
+}
 }
